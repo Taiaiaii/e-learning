@@ -1,10 +1,11 @@
 import type { NextPage } from 'next'
+import { LoginTemplate } from '../templates/Login'
 
 
-const Home: NextPage = () => {
+const Login: NextPage = () => {
   return (
-   <div>Hello world</div>
+   <LoginTemplate/>
   )
 }
 
-export default Home
+export default Login
