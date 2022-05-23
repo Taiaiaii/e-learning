@@ -9,17 +9,17 @@ export function LoginTemplate() {
   return (
     <MainContainer>
       <TopContainer>
-        <Icon />
+        <Icon data-testid='image' />
       </TopContainer>
       <BottomContainer>
         <div>
           <h1>Aprenda da melhor forma</h1>
-          <p>
+          <p data-testid='informer'>
             Entre na plataforma e <br /> acesse cursos de diversas áreas de
             conhecimento.
           </p>
         </div>
-        <Button fullWidth variant='filled' onClick={()=> push('/home') }>
+        <Button fullWidth variant='filled' onClick={() => push('/home')}>
           Começar os estudos
         </Button>
       </BottomContainer>

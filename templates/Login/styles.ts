@@ -33,8 +33,7 @@ export const BottomContainer = styled('div', {
         fontSize: '36px',
         lineHeight: '42.66px',
         fontWeight: '400',
-        width: '90%'
-        
+        width: '90%'       
     },
     "& p": {
         color: '$principal',
@@ -43,7 +42,5 @@ export const BottomContainer = styled('div', {
         lineHeight: '25px',
         padding: '0 4px 40px',
         width: '73%'
-
-
     }
 })
