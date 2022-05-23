@@ -1,22 +1,28 @@
+import { createStitches } from '@stitches/react';
 import { styled } from '../../styles/stitches.config';
 
 export const ClassCardContainer = styled('div',{
-    width: '290px',
-    height: '100px',
     backgroundColor: '$principal',
     borderRadius: '16px',
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    height: '100px',
+    width: '290px',
+    padding: '10 24px',
+    '@media (max-width: 320px)': {
+        width: '260px',
+        height: '85px'
+    }
 })
 
 export const IconContainer = styled('div', {
     borderRadius: '16px',
-    width: '68px',
-    height: '68px',
+    width: '30%',   
+    height: '68%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: '-34px',
+    marginLeft: '-10%',
     variants: {
         concluded: {
             true: {
@@ -33,7 +39,7 @@ export const Content = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    padding: '24px',
+    padding: '0 16px',
     width: '100%'
 })
 
@@ -55,24 +61,22 @@ export const BottomContainer = styled('div',{
 export const Details = styled('div', {
     display: 'flex',
     justifyContent: 'flex-start',
-    width: '50%',
+    width: '65%',
     paddingTop: '16px',
     '& p': {
         fontSize: '10px',
         fontWeight: '400',
         lineHeight: '12px',
         color: '$inputs',
-        width: '50%'
-
+        width: '55%'
     }
 })
 
 export const Time = styled('div',{
     display: 'flex',
     justifyContent: 'flex-start',
-    width: '70%',
+    width: '100%',
     gap: '5px'   
-
 })
 
 export const Label = styled('div', {
@@ -86,6 +90,5 @@ export const Label = styled('div', {
         lineHeight: '10px',
         padding: '3px 8px',
         color: '$principal',
-    }
-    
+    }   
 })

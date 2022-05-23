@@ -11,8 +11,6 @@ type ClassType = {
 }
 
 export default function ClassCard ({isConcluded,time, title, classNumber}: ClassType){
-  
-
     return (
       <ClassCardContainer>
         <IconContainer concluded={isConcluded}>
