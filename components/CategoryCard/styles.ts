@@ -15,9 +15,7 @@ export const CategoryContent = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     paddingTop: '24px',
-    width: '100%',
-    
-
+    width: '100%',  
 })
 
 export const CategoryTitle = styled('h2', {
@@ -33,5 +31,4 @@ export const Lessons = styled('p', {
     fontWeight: '400',
     lineHeight: '12px',
     color: '$inputs'
-
 })

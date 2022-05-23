@@ -8,7 +8,6 @@ type CategoryType = {
 };
 
 export default function CategoryCard ({img, title, lessons}: CategoryType) {
-
     return (
         <CategoryCardContainer>
            <Image src={img} width={64} height={63} alt='' />
