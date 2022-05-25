@@ -5,9 +5,6 @@ const dots = keyframes({
     '0% ': {
         backgroundColor: '#FF6680'
     },
-    '50%': {
-        backgroundColor: '#FFFFFF'
-    },
 
     '100%': {
         backgroundColor: '#FFFFFF'
@@ -39,7 +36,7 @@ export const DotContainer = styled('div', {
         backgroundColor: '$principal',
         color: '$principal',
         animation: `${dots} 1s infinite alternate`,
-        animationDelay: '1s'
+        animationDelay: '0s'
     },
     '& div::after': {
         left: '15px',
@@ -48,7 +45,7 @@ export const DotContainer = styled('div', {
         backgroundColor: '$principal',
         color: '$principal',
         animation: `${dots} 1s infinite alternate`,
-        animationDelay: '2s'
+        animationDelay: '1s'
     }
 })
 
@@ -59,5 +56,5 @@ export const Dot = styled('div', {
     backgroundColor: '$principal',
     color: '$principal',
     animation: `${dots} 1s infinite linear alternate`,
-    animationDelay: '3s' 
+    animationDelay: '0.5s' 
 })
