@@ -5,7 +5,7 @@ export const MainContainer = styled('div', {
     minHeight: '100vh',
     display: 'flex',
     alignItems: 'center',
-    flexDirection: 'column',
+    flexDirection: 'column',   
 })
 
 export const TopContainer = styled('div', {
@@ -14,16 +14,24 @@ export const TopContainer = styled('div', {
     backgroundSize: 'cover',
     width: '100%',
     display: 'flex ',
-    padding: '131px 136px 135px 36px '
-
+    height: '80vh',
+    alignItems: 'center',
+    justifyContent: 'center',
+    '& svg': {
+        marginLeft: '-25%'
+    },
+    '@media (max-width: 320px)': {
+        height: '100vh',
+        padding: '30px'
+    }
 })
 
 export const BottomContainer = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    marginTop: '-39px',
-    padding: '0 36px',
+    marginTop: '-59px',
+    padding: '20px 36px 20px',
     '& div': {
       width: '100%',
     },
@@ -33,14 +41,22 @@ export const BottomContainer = styled('div', {
         fontSize: '36px',
         lineHeight: '42.66px',
         fontWeight: '400',
-        width: '90%'       
+        width: '90%',
+        '@media (max-width: 320px)': {
+            width: '100%',
+            padding: '0 20px 10px',
+        }       
     },
-    "& p": {
+    '& p': {
         color: '$principal',
         fontSize: '15px',
         fontWeight: '400',
         lineHeight: '25px',
         padding: '0 4px 40px',
-        width: '73%'
-    }
+        width: '73%',
+        '@media (max-width: 320px)': {
+            width: '100%',
+            padding: '0 20px 10px',
+        }
+    },    
 })
