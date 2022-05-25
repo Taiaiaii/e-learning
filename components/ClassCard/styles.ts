@@ -83,8 +83,7 @@ export const Label = styled('div', {
     borderRadius: '12px',
     backgroundColor: '$green',
     marginTop: '16px',
-    '& p': {
-        
+    '& p': {     
         fontSize: '10px',
         fontWeight: '500',
         lineHeight: '10px',

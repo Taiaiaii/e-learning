@@ -15,7 +15,7 @@ export const TopContainer = styled('div', {
     backgroundSize: 'cover',
     width: '100%',
     display: 'flex ',
-    padding: '131px 136px 135px 36px ',
+    padding: '131px 136px 135px 36px',
     justifyContent: 'center'
 })
 
