@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '../../styles/stitches.config';
-import {  keyframes } from '@stitches/react';
+import { keyframes } from '@stitches/react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 
 const overlayShow = keyframes({
@@ -39,7 +39,6 @@ export const StyledContent = styled(AlertDialogPrimitive.Content, {
     '&:focus': { outline: 'none' },
 });
 
-
 export const StyledDescription = styled(AlertDialogPrimitive.Description, {
     margin: 20,
     color: '$base',
@@ -50,7 +49,7 @@ export const StyledDescription = styled(AlertDialogPrimitive.Description, {
 
 export const ButtonsContainer = styled('div', { display: 'flex', padding: '0 20px' });
 
-export const TriggerButton = styled('button', { border: 'none', backgroundColor: 'transparent'})
+export const TriggerButton = styled('button', { border: 'none', backgroundColor: 'transparent' })
 
 export const Content = styled('div', {
     display: 'flex',

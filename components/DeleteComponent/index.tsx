@@ -26,11 +26,11 @@ export default function DeleteComponent () {
             <Garbage />
           </TriggerButton>
         </AlertDialogPrimitive.Trigger>
-        <AlertDialogContent>
+        <AlertDialogContent data-testid='dialog'>
           <Content>
-            <ColorfulGarbage/>
+            <ColorfulGarbage />
             <StyledDescription>
-              Quer excluir suas aulas de Matemática?
+              Quer excluir suas aulas?
             </StyledDescription>
             <ButtonsContainer>
               <AlertDialogPrimitive.Action asChild>
