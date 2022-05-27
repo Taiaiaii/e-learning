@@ -5,7 +5,7 @@ export const Div = styled('div', {
     width: '100%',
     '& input::placeholder': {
         color: '$inputs',
-        fontSize: '15px',
+        fontSize: '1.5rem',
         fontWeight: '400',
         position: 'absolute',
         left: '60px',
@@ -31,6 +31,6 @@ export const StyledInput = styled('input', {
     backgroundPositionX: '26.5px',
     backgroundPositionY: 'center',
     color: '$base',
-    fontSize: '20px',
+    fontSize: '2rem',
     outline: 'none'
 })
