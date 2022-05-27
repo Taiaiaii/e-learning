@@ -1,4 +1,4 @@
-export type ClassesType = {
+export interface IClass {
     id: number,
     isConcluded: boolean,
     title: string,

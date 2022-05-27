@@ -1,6 +1,6 @@
-import {ClassesType} from '../../models/ClassesType'
+import { IClass } from '../../models/IClass'
 
-export const MOCKED_CLASSES: ClassesType [] = [
+export const MOCKED_CLASSES: IClass[] = [
     {
         id: 1,
         isConcluded: true,

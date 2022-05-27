@@ -1,6 +1,6 @@
-import {CategoryType } from '../../models/CategoryType'
+import { ICategory } from '../../models/ICategory'
 
-export const MOCKED_CATEGORY_LIST: CategoryType[] = [
+export const MOCKED_CATEGORY_LIST: ICategory[] = [
     {
         category_id: '0102',
         category_name: 'Matemática',
