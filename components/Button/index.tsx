@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 import { StyledButton } from './styles';
 
 type Variants = 
@@ -6,7 +6,7 @@ type Variants =
 |'ghost'
 
 type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'css'> & {
-  children: string;
+  children: string | ReactNode
   fullWidth?: boolean;
   variant: Variants
 };
