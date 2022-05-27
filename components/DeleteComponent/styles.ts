@@ -40,10 +40,10 @@ export const StyledContent = styled(AlertDialogPrimitive.Content, {
 });
 
 export const StyledDescription = styled(AlertDialogPrimitive.Description, {
-    margin: 20,
+    margin: '20px',
     color: '$base',
-    fontSize: '15px',
-    lineHeight: '25px',
+    fontSize: '1.5rem',
+    lineHeight: '1.5',
     textAlign: 'center'
 });
 

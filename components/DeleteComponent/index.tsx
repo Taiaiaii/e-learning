@@ -5,11 +5,11 @@ import Garbage from '../../public/garbage.svg';
 import ColorfulGarbage from '../../public/colorfulGarbage.svg';
 import { Button } from '../Button';
 
-type ContentType = {
+interface IContentProps  {
     children: ReactElement;
 }
 
-function AlertDialogContent({ children, ...props }: ContentType) {
+function AlertDialogContent({ children, ...props }: IContentProps) {
   return (
     <AlertDialogPrimitive.Portal>
       <StyledOverlay />

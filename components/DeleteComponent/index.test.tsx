@@ -5,9 +5,9 @@ describe('Delete component', ()=> {
     it('Should display alert dialog on click', ()=> {
         render(<DeleteComponent/>)
 
-        const garbage = screen.getByRole('button')
+        const button = screen.getByRole('button')
         
-        fireEvent.click(garbage)
+        fireEvent.click(button)
 
         const dialog = screen.getByTestId('dialog')
         expect(dialog).toBeInTheDocument();
@@ -15,15 +15,15 @@ describe('Delete component', ()=> {
     it('Should close alert dialog on click confirm or cancel button', () => {
       render(<DeleteComponent />);
 
-      const garbage = screen.getByRole('button');
-      fireEvent.click(garbage);
+      const button = screen.getByRole('button');
+      fireEvent.click(button);
 
       const cancelButton = screen.getByRole('button', { name: 'Não' });
       fireEvent.click(cancelButton);
       const dialog = screen.queryByTestId('dialog');
       expect(dialog).not.toBeInTheDocument();
 
-      fireEvent.click(garbage);
+      fireEvent.click(button);
 
       const confirmButton = screen.getByRole('button', { name: 'Com certeza' });
       fireEvent.click(confirmButton);     
