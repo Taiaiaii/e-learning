@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { LoginTemplate } from '.';
-// import '@testing-library/jest-dom';
 
 const mockedPush = jest.fn()
 
