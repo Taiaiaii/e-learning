@@ -21,17 +21,17 @@ export const CategoryContent = styled('div', {
 })
 
 export const CategoryTitle = styled('h2', {
-    fontSize: '15px',
+    fontSize: '1.5rem',
     fontWeight: '400',
-    lineHeight: '20px',
+    lineHeight: '1.5',
     color: '$base',
     paddingBottom: '4px'
 })
 
 export const Lessons = styled('p', {
-    fontSize: '10px',
+    fontSize: '1rem',
     fontWeight: '400',
-    lineHeight: '12px',
+    lineHeight: '1.5',
     color: '$inputs'
 })
 

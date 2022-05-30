@@ -5,6 +5,7 @@ export const globalStyles = globalCss({
     margin: 0,
     padding: 0,
     boxSizing: 'border-box',
+    fontSize: '62.5%'
   },
   ':root': {
     '--app-height': '100vh',
@@ -13,7 +14,6 @@ export const globalStyles = globalCss({
     display: 'flex',
     flexDirection: 'column',
     height: 'var(--app-height)',
-
   },
   '#__next': {
     flex: 1,
