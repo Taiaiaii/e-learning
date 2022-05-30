@@ -5,7 +5,7 @@ export const StyledButton = styled('button', {
     padding: '19px 82px',
     fontSize: '1.5rem',
     fontWeight: '500',
-    lineHeight: '1.5rem',
+    lineHeight: '1.5',
     whiteSpace: 'nowrap',
     border: 0,
     borderRadius: '100px',
