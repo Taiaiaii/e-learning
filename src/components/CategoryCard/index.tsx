@@ -1,4 +1,7 @@
+import React from 'react';
+
 import Image from "next/image";
+
 import { CategoryCardContainer, CategoryContent, CategoryTitle, Lessons } from "./styles";
 
 type CategoryType = {
