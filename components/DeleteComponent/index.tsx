@@ -1,7 +1,7 @@
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import { ReactElement } from 'react';
 import { ButtonsContainer, Content, StyledContent, StyledDescription, StyledOverlay, TriggerButton,  } from './styles';
-import Garbage from '../../public/garbage.svg';
+import GarbageButton from '../../public/garbage.svg';
 import ColorfulGarbage from '../../public/colorfulGarbage.svg';
 import { Button } from '../Button';
 
@@ -23,7 +23,7 @@ export default function DeleteComponent () {
       <AlertDialogPrimitive.Root>
         <AlertDialogPrimitive.Trigger asChild>
           <TriggerButton>
-            <Garbage />
+            <GarbageButton />
           </TriggerButton>
         </AlertDialogPrimitive.Trigger>
         <AlertDialogContent data-testid='dialog'>
