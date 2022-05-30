@@ -10,7 +10,7 @@ type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'css'> & {
   variant: Variants;
 };
 
-export function Button({ children, type = 'button', ...rest }: ButtonProps) {
+export default function Button({ children, type = 'button', ...rest }: ButtonProps) {
   return (
     <StyledButton type={type} {...rest}>
       {children}

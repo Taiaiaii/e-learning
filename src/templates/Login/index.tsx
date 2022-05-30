@@ -1,8 +1,12 @@
-import { BottomContainer, MainContainer, TopContainer } from './styles';
-import { useRouter } from 'next/router';
+import React from 'react';
 
+import { useRouter } from 'next/router';
 import Icon from 'public/Vector.svg';
-import { Button } from '@/components/Button';
+
+import Button from '@/components/Button';
+
+import { BottomContainer, MainContainer, TopContainer } from './styles';
+
 
 export function LoginTemplate() {
   const { push } = useRouter();
