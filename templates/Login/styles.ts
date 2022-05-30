@@ -5,7 +5,8 @@ export const MainContainer = styled('div', {
     minHeight: '100vh',
     display: 'flex',
     alignItems: 'center',
-    flexDirection: 'column',   
+    flexDirection: 'column',
+    paddingBottom: '20px'
 })
 
 export const TopContainer = styled('div', {
