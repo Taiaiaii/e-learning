@@ -1,8 +1,8 @@
 import { ReactElement } from "react"
 import { ClassContainer, Header, MainContainer } from "./styles"
-import Logo from '../../public/e.learning-logo.svg'
-import ArrowBack from '../../public/arrow-back.svg'
-import Like from '../../public/like.svg'
+import Logo from 'public/e.learning-logo.svg'
+import ArrowBack from 'public/arrow-back.svg'
+import Like from 'public/like.svg'
 import { useRouter} from 'next/router'
 
 interface IClassLayoutProps {
