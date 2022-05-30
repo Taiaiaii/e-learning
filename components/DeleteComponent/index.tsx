@@ -1,47 +1,19 @@
-import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
-import { ReactElement } from 'react';
-import { ButtonsContainer, Content, StyledContent, StyledDescription, StyledOverlay, TriggerButton,  } from './styles';
 import GarbageButton from '../../public/garbage.svg';
 import ColorfulGarbage from '../../public/colorfulGarbage.svg';
 import { Button } from '../Button';
+import { ModalTrigger } from '../ModalTrigger';
+import { ModalContent } from '../ModalContent';
 
-interface IContentProps  {
-    children: ReactElement;
-}
-
-function AlertDialogContent({ children, ...props }: IContentProps) {
-  return (
-    <AlertDialogPrimitive.Portal>
-      <StyledOverlay />
-      <StyledContent {...props}>{children}</StyledContent>
-    </AlertDialogPrimitive.Portal>
-  );
-}
 
 export default function DeleteComponent () {
     return (
-      <AlertDialogPrimitive.Root>
-        <AlertDialogPrimitive.Trigger asChild>
-          <TriggerButton>
-            <GarbageButton />
-          </TriggerButton>
-        </AlertDialogPrimitive.Trigger>
-        <AlertDialogContent data-testid='dialog'>
-          <Content>
-            <ColorfulGarbage />
-            <StyledDescription>
-              Quer excluir suas aulas?
-            </StyledDescription>
-            <ButtonsContainer>
-              <AlertDialogPrimitive.Action asChild>
-                <Button variant='ghost'>Não</Button>
-              </AlertDialogPrimitive.Action>
-              <AlertDialogPrimitive.Cancel asChild>
-                <Button variant='filled'>Com certeza</Button>
-              </AlertDialogPrimitive.Cancel>
-            </ButtonsContainer>
-          </Content>
-        </AlertDialogContent>
-      </AlertDialogPrimitive.Root>
+      <ModalTrigger button={<GarbageButton />}>
+        <ModalContent
+          icon={<ColorfulGarbage />}
+          buttonConfirm={<Button variant='filled'>Com certeza</Button>}
+          buttonCancel={<Button variant='ghost'>Não</Button>}
+          description='Quer excluir suas aulas?'
+        />
+      </ModalTrigger>
     );
 }
