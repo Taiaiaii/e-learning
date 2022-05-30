@@ -7,7 +7,6 @@ interface IModalContentProps {
     description: string;
     buttonCancel: ReactNode;
     buttonConfirm: ReactNode
-
 }
 
 export function ModalContent({icon, description, buttonCancel, buttonConfirm}: IModalContentProps){

@@ -6,18 +6,18 @@ type CategoryType = {
   img: string ;
   title: string;
   lessons: string;
-  children?: ReactElement
+  deleteIcon?: ReactElement
 };
 
-export default function CategoryCard ({img, title, lessons, children}: CategoryType) {
+export default function CategoryCard ({img, title, lessons, deleteIcon}: CategoryType) {
     return (
       <CategoryCardContainer>
-        <Image src={img} width={64} height={63} alt='' />
+        <Image src={img} width={64} height={64} alt='' />
         <CategoryContent>
           <CategoryTitle>{title}</CategoryTitle>
           <Lessons>{lessons} Aulas</Lessons>
         </CategoryContent>
-        <ChildrenContainer>{children}</ChildrenContainer>
+        {deleteIcon && <ChildrenContainer>{deleteIcon}</ChildrenContainer> }       
       </CategoryCardContainer>
     );
 }
