@@ -14,7 +14,6 @@ export const globalStyles = globalCss({
     display: 'flex',
     flexDirection: 'column',
     height: 'var(--app-height)',
-
   },
   '#__next': {
     flex: 1,

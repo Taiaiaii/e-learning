@@ -1,9 +1,9 @@
 import { styled } from '../../styles/stitches.config';
 
 export const StyledButton = styled('button', {
-
     padding: '11px 24px',
     fontSize: '1.5rem',
+    fontWeight: '500',
     lineHeight: '1.5',
     whiteSpace: 'nowrap',
     border: 0,
@@ -24,7 +24,7 @@ export const StyledButton = styled('button', {
         fullWidth: {
             true: {
                 display: 'block',
-                width: '100%',
+                width: '100%',         
                 padding: '19px 82px',
             },
         },

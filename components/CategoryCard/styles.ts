@@ -8,7 +8,9 @@ export const CategoryCardContainer = styled('div', {
     borderRadius: '16px',
     width: '100%',
     padding: '25px',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
+    position: 'relative',
+    maxWidth: '156px'
 })
 
 export const CategoryContent = styled('div', {
@@ -19,16 +21,22 @@ export const CategoryContent = styled('div', {
 })
 
 export const CategoryTitle = styled('h2', {
-    fontSize: '15px',
+    fontSize: '1.5rem',
     fontWeight: '400',
-    lineHeight: '20px',
+    lineHeight: '1.5',
     color: '$base',
     paddingBottom: '4px'
 })
 
 export const Lessons = styled('p', {
-    fontSize: '10px',
+    fontSize: '1rem',
     fontWeight: '400',
-    lineHeight: '12px',
+    lineHeight: '1.5',
     color: '$inputs'
+})
+
+export const ChildrenContainer = styled('div', {
+    position: 'absolute',
+    top: '12px',
+    right: '14px'
 })
