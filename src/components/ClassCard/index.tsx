@@ -1,17 +1,18 @@
 import React from 'react'
 
-import Icon from '../../public/courses.svg'
-import Clock from '../../public/clock.svg'
+import Icon from '@/public/courses.svg'
+import Clock from '@/public/clock.svg'
+
 import { BottomContainer, ClassCardContainer, Content, Details, IconContainer, Label, Time, Title } from './styles'
 
-type ClassType = {
+interface IClassCardProps {
     isConcluded: boolean;
     title: string;
     time: number;
     classNumber: string;
 }
 
-export default function ClassCard ({isConcluded,time, title, classNumber}: ClassType){
+export default function ClassCard ({isConcluded,time, title, classNumber}: IClassCardProps){
     return (
       <ClassCardContainer>
         <IconContainer concluded={isConcluded}>

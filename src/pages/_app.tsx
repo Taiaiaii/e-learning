@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import '../styles/globalStyle.ts'
 import type { AppProps } from 'next/app'
 

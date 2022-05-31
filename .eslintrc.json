@@ -17,7 +17,6 @@
       "typescript": {}
     }
   },
-  
 
   "extends": [
     "eslint:recommended",
@@ -26,13 +25,13 @@
   ],
 
   "rules": {
-      "react/react-in-jsx-scope": "off",
-       "import-helpers/order-imports": [
+    "react/react-in-jsx-scope": "off",
+    "import-helpers/order-imports": [
       "warn",
       {
         "newlinesBetween": "always",
         "groups": [
-          ["/^react$/"],
+          // ["/^react$/"],
           "module",
           "/^@/",
           ["parent", "sibling", "index"]
