@@ -1,7 +1,9 @@
-/*
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
+const { pathsToModuleNameMapper } = require('ts-jest');
+
+const { compilerOptions } = require('./tsconfig.json');
+const tsPaths = pathsToModuleNameMapper(compilerOptions.paths, {
+  prefix: '<rootDir>/',
+});
 
 module.exports = {
   // All imported modules in your tests should be mocked automatically
@@ -72,7 +74,7 @@ module.exports = {
 
   // An array of directory names to be searched recursively up from the requiring module's location
   // moduleDirectories: [
-  //   "node_modules"
+  //   "node_modules", "src"
   // ],
 
   // An array of file extensions your modules use
@@ -92,10 +94,11 @@ module.exports = {
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
     '^.+\\.(css|sass|scss)$': '<rootDir>/.mocks/jest/styleMock.js',
     '^.+\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/.mocks/jest/fileMock.js',
+    ...tsPaths,
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
-  // modulePathIgnorePatterns: [],
+  modulePathIgnorePatterns: ['node_modules', 'jest-test-results.json'],
 
   // Activates notifications for test results
   // notify: false,
