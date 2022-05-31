@@ -1,6 +1,6 @@
 import ClassLayout from '@components/ClassLayout';
 import { Button } from '@components/Button';
-import { ButtonContainer, ButtonContent, DescriptionContainer, DetailsContainer, VideoContainer } from './styles';
+import { ButtonContainer, DescriptionContainer, DetailsContainer, VideoContainer } from './styles';
 import ArrowBack from '@public/arrow-back.svg'
 import ArrowFoward from '@public/arrow-foward.svg'
 
@@ -12,8 +12,7 @@ export default function VideoClassTemplate() {
           width='100%'
           height='100%'
           src='https://www.youtube.com/embed/ddZHkCUcYRM'
-          title='YouTube video player'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+          title='YouTube video player'        
         ></iframe>
       </VideoContainer>
       <DescriptionContainer>
@@ -30,17 +29,13 @@ export default function VideoClassTemplate() {
         </p>
       </DescriptionContainer>
       <ButtonContainer>
-        <Button variant='ghost'>
-          <ButtonContent>
-            <ArrowBack />
-            Aula anterior
-          </ButtonContent>
+        <Button iconSide='left' variant='ghost'>
+          <ArrowBack />
+          Aula anterior
         </Button>
-        <Button variant='filled'>
-          <ButtonContent>
-            Próxima aula
-            <ArrowFoward />
-          </ButtonContent>
+        <Button iconSide='right' variant='filled'>
+          <ArrowFoward />
+          Próxima aula
         </Button>
       </ButtonContainer>
     </ClassLayout>

@@ -53,13 +53,3 @@ export const ButtonContainer = styled('div', {
 
 })
 
-export const ButtonContent = styled('div', {
-    display: 'flex',
-    alignItems: 'center',
-    fontSize: '1.5rem',
-    width: '100%',
-    '& svg': {
-        margin: '0 4px'
-    }
-
-})

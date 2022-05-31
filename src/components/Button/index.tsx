@@ -1,18 +1,26 @@
-import React, { ButtonHTMLAttributes, ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, ReactElement, ReactNode } from 'react';
 
 import { StyledButton } from './styles';
 
 type Variants = 'filled' | 'ghost';
 
 type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'css'> & {
-  children: string | ReactNode
+  icon?: ReactElement;
+  iconSide?: 'right' | 'left';
+  children:  ReactNode | string;
   fullWidth?: boolean;
   variant: Variants;
 };
 
-export function Button({ children, type = 'button', ...rest }: ButtonProps) {
+export function Button({
+  icon,
+  children,
+  type = 'button',
+  ...rest
+}: ButtonProps) {
   return (
     <StyledButton type={type} {...rest}>
+      {icon}
       {children}
     </StyledButton>
   );
