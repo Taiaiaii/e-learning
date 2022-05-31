@@ -37,8 +37,7 @@ export const DetailsContainer = styled('div', {
     '& span': {
         fontSize: '1.2rem',
         color: '$inputs'
-    }
-    
+    }   
 })
 
 export const ButtonContainer = styled('div', {
@@ -50,6 +49,5 @@ export const ButtonContainer = styled('div', {
     width: '100%',
     padding: '0 25px',
     boxSizing: 'border-box'
-
 })
 
