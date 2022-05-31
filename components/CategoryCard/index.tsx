@@ -1,20 +1,23 @@
 import Image from "next/image";
-import { CategoryCardContainer, CategoryContent, CategoryTitle, Lessons } from "./styles";
+import { ReactElement } from "react";
+import { CategoryCardContainer, CategoryContent, CategoryTitle, ChildrenContainer, Lessons } from "./styles";
 
-type CategoryType = {
+interface ICategoryCardProps  {
   img: string ;
   title: string;
   lessons: string;
+  deleteIcon?: ReactElement
 };
 
-export default function CategoryCard ({img, title, lessons}: CategoryType) {
+export default function CategoryCard ({img, title, lessons, deleteIcon}: ICategoryCardProps) {
     return (
-        <CategoryCardContainer>
-           <Image src={img} width={64} height={63} alt='' />
-           <CategoryContent>
-           <CategoryTitle>{title}</CategoryTitle>
-           <Lessons>{lessons} Aulas</Lessons> 
-           </CategoryContent>
-        </CategoryCardContainer>
-    )
+      <CategoryCardContainer>
+        <Image src={img} width={64} height={64} alt='' />
+        <CategoryContent>
+          <CategoryTitle>{title}</CategoryTitle>
+          <Lessons>{lessons} Aulas</Lessons>
+        </CategoryContent>
+        {deleteIcon && <ChildrenContainer>{deleteIcon}</ChildrenContainer> }       
+      </CategoryCardContainer>
+    );
 }
