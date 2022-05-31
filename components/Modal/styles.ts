@@ -39,3 +39,20 @@ export const StyledContent = styled(AlertDialogPrimitive.Content, {
 });
 
 export const TriggerButton = styled('button', { border: 'none', backgroundColor: 'transparent' })
+
+export const Content = styled('div', {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+})
+
+export const Description = styled('h1', {
+    margin: '20px',
+    color: '$base',
+    fontSize: '1.5rem',
+    lineHeight: '1.5',
+    textAlign: 'center'
+});
+
+export const ButtonsContainer = styled('div', { display: 'flex', padding: '0 20px' });
