@@ -1,10 +1,9 @@
 import React, { ReactElement } from 'react';
 import { useRouter } from 'next/router';
 
-import Logo from '@/public/e.learning-logo.svg';
+import Logo from '@public/e.learning-logo.svg';
 import ArrowBack from '@public/arrow-back.svg';
-import Like from '@/public/like.svg';
-
+import Like from '@public/like.svg';
 import { ClassContainer, Header, MainContainer } from './styles';
 
 interface IClassLayoutProps {

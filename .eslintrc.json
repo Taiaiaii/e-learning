@@ -30,11 +30,9 @@
       "warn",
       {
         "newlinesBetween": "always",
-        "groups": [
-          // ["/^react$/"],
+         "groups": [
           "module",
-          "/^@/",
-          ["parent", "sibling", "index"]
+          ["/^@(components|templates|public)/", "parent", "sibling", "index"]
         ],
         "alphabetize": { "order": "ignore", "ignoreCase": true }
       }
