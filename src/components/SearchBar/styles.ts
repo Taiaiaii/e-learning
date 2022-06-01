@@ -32,6 +32,5 @@ export const StyledInput = styled('input', {
     backgroundPositionY: 'center',
     color: '$base',
     fontSize: '2rem',
-    outline: 'none',
-    border: 'none'
+    outline: 'none'
 })
