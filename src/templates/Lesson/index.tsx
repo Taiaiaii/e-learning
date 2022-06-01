@@ -1,3 +1,4 @@
+
 import { IClass } from 'models/IClass';
 
 import ClassLayout from '@components/ClassLayout';
@@ -11,11 +12,13 @@ import {
 import ArrowBack from '@public/arrow-back.svg';
 import ArrowFoward from '@public/arrow-foward.svg';
 
+
 interface ILessonTemplateProps {
   lesson: IClass;
 }
 
 export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
+  
   return (
     <ClassLayout route='/aulas'>
       <VideoContainer>
