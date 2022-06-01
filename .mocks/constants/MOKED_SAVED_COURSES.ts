@@ -1,6 +1,6 @@
 import { ICategory } from '../../models/ICategory'
 
-export const MOCKED_CATEGORY_LIST: ICategory[] = [
+export const MOCKED_SAVED_COURSES: ICategory[] = [
     {
         id: '0102',
         name: 'Matemática',
@@ -19,23 +19,4 @@ export const MOCKED_CATEGORY_LIST: ICategory[] = [
         img: '/english.svg',
         lessons: '6',
     },
-    {
-        id:'0105',
-        name: 'Química',
-        img: '/chemistry.svg',
-        lessons: '61',
-    },
-    {
-        id: '0106',
-        name: 'Oratória',
-        img: '/talk.svg',
-        lessons: '15',
-    },
-    {
-        id: '0107',
-        name: 'Caligrafia',
-        img: '/build.svg',
-        lessons: '3',
-    },
-
 ]
