@@ -1,27 +1,30 @@
 import ClassCard from '@components/ClassCard';
 import ClassLayout from '@components/ClassLayout';
+
 import { MOCKED_CLASSES } from '../../../.mocks/constants/MOCKED_CLASSES';
+import { CardContainer, Content, Title } from './styles';
 
 export function ClassesTemplate() {
   return (
     <ClassLayout route='/home'>
-      <div>
+      <Title>
         <h1>Matemática</h1>
         <p>16 aulas</p>
-      </div>
-      <div>
+      </Title>
+      <Content>
         {MOCKED_CLASSES.map((lesson) => {
-            return (
+          return (
+            <CardContainer  key={lesson.id}>
               <ClassCard
                 classNumber={lesson.classNumber}
                 isConcluded={lesson.isConcluded}
                 time={lesson.time}
                 title={lesson.title}
-                key={lesson.id}
               />
-            );
+            </CardContainer>
+          );
         })}
-      </div>
+      </Content>
     </ClassLayout>
   );
 }

@@ -22,9 +22,9 @@ export const MainContainer = styled('div', {
     backgroundColor: '$background',
     borderTopLeftRadius: '24px',
     borderTopRightRadius: '24px',
-    height: '100vh',
+    height: 'auto',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    position: 'relative'
+    position: 'relative',
 })
