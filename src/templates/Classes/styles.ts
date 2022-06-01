@@ -2,7 +2,7 @@ import { styled } from '../../styles/stitches.config';
 
 export const Title = styled('div', {
     width: '100%',
-    padding: '32px 25px 25px',
+    padding: '32px 25px 13px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',

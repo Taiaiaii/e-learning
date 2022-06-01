@@ -1,18 +1,24 @@
+import { ICategory } from 'models/ICategory';
+import { IClass } from 'models/IClass';
+
 import ClassCard from '@components/ClassCard';
 import ClassLayout from '@components/ClassLayout';
-
-import { MOCKED_CLASSES } from '../../../.mocks/constants/MOCKED_CLASSES';
 import { CardContainer, Content, Title } from './styles';
 
-export function ClassesTemplate() {
+interface IClassesTemplateProps {
+    category: ICategory;
+    classes: IClass[]
+}
+
+export function ClassesTemplate({category, classes}: IClassesTemplateProps) {
   return (
     <ClassLayout route='/home'>
       <Title>
-        <h1>Matemática</h1>
-        <p>16 aulas</p>
+        <h1>{category.name}</h1>
+        <p>{category.lessons} aulas</p>
       </Title>
       <Content>
-        {MOCKED_CLASSES.map((lesson) => {
+        {classes.map((lesson) => {
           return (
             <CardContainer  key={lesson.id}>
               <ClassCard
