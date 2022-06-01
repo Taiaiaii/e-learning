@@ -10,7 +10,7 @@ import {
 } from './styles';
 import Logo from '@public/logo.svg';
 import LogoutButton from '@public/logout.svg';
-import SearchBar from '@components/Loading/SearchBar';
+import SearchBar from '@components/SearchBar';
 import Home from '@public/home.svg';
 import Saved from '@public/saved.svg';
 
