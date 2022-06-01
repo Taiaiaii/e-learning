@@ -1,5 +1,6 @@
-import { IClass } from 'models/IClass';
-
+import ArrowBack from '@public/arrow-back.svg';
+import ArrowFoward from '@public/arrow-foward.svg';
+import { IClass } from '@models/IClass';
 import ClassLayout from '@components/ClassLayout';
 import { Button } from '@components/Button';
 import {
@@ -8,8 +9,6 @@ import {
   DetailsContainer,
   VideoContainer,
 } from './styles';
-import ArrowBack from '@public/arrow-back.svg';
-import ArrowFoward from '@public/arrow-foward.svg';
 
 interface ILessonTemplateProps {
   lesson: IClass;
@@ -32,9 +31,7 @@ export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
           <span>Aula {lesson.classNumber}</span>
           <span>{lesson.time} min</span>
         </DetailsContainer>
-        <p>
-          {lesson.details.description}
-        </p>
+        <p>{lesson.details.description}</p>
       </DescriptionContainer>
       <ButtonContainer>
         <Button iconSide='left' variant='ghost'>

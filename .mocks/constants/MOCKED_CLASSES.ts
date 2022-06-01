@@ -1,4 +1,4 @@
-import { IClass } from '../../models/IClass'
+import { IClass } from '../../src/models/IClass'
 
 export const MOCKED_CLASSES: IClass[] = [
     {
