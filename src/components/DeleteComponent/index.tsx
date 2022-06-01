@@ -1,7 +1,7 @@
-import TrashButton from '../../public/trash.svg';
-import ColorfulGarbage from '../../public/colorfulGarbage.svg';
-import { Button } from '../Button';
-import { Modal } from '../Modal';
+import TrashButton from '@public/trash.svg';
+import ColorfulGarbage from '@public/colorfulGarbage.svg';
+import { Button } from '@components/Button';
+import { Modal } from '@components/Modal';
 
 export default function DeleteComponent () {
     return (

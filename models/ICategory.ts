@@ -1,6 +1,6 @@
 export interface ICategory  {
-    category_id: string,
-    category_name: string,
+    id: string,
+    name: string,
     img: string,
     lessons: string,
 }
