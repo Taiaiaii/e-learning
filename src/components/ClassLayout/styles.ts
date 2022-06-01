@@ -7,8 +7,9 @@ export const ClassContainer = styled('div', {
 })
 
 export const Header = styled('div', {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',   
     '& button': {
         backgroundColor: 'transparent',
         border: 'none',
@@ -21,5 +22,9 @@ export const MainContainer = styled('div', {
     backgroundColor: '$background',
     borderTopLeftRadius: '24px',
     borderTopRightRadius: '24px',
-    height: '100vh'
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    position: 'relative'
 })

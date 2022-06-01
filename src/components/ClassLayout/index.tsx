@@ -6,6 +6,7 @@ import ArrowBack from '@public/arrow-back.svg';
 import Like from '@public/like.svg';
 import { ClassContainer, Header, MainContainer } from './styles';
 
+
 interface IClassLayoutProps {
   children: ReactNode;
   route: string;
