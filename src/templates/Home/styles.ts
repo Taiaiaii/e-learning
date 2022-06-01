@@ -23,7 +23,8 @@ export const Content = styled('div', {
     gridTemplateColumns: 'repeat(2, 1fr)',
     justifyItems: 'center',
     alignItems: 'center',
-    paddingBottom: '50px'
+    gridAutoRows: '200px',
+    padding: '0 15px'
 })
 export const CardContainer = styled('div', {
     width: '100%',
