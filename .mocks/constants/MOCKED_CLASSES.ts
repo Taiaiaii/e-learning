@@ -1,7 +1,7 @@
 import { IClass } from '../../models/IClass'
 
 export const MOCKED_CLASSES: IClass[] = [
-    {
+    { 
         id: 1,
         isConcluded: true,
         title: 'Introdução à teoria matemática',
