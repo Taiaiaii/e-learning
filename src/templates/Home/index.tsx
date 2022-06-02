@@ -5,10 +5,10 @@ import CategoryCard from '@components/CategoryCard';
 import { CardContainer, Content, Title } from './styles';
 
 interface IHomeTemplateProps {
-    categorys: ICategory[];
+  categorys: ICategory[];
 }
 
-export function HomeTemplate({categorys}: IHomeTemplateProps) {
+export function HomeTemplate({ categorys }: IHomeTemplateProps) {
   return (
     <CategoryLayout>
       <Title>
@@ -16,17 +16,15 @@ export function HomeTemplate({categorys}: IHomeTemplateProps) {
         <p>{categorys.length} cursos</p>
       </Title>
       <Content>
-        {categorys.map((category) => {
-          return (
-            <CardContainer key={category.id}>
-              <CategoryCard
-                img={category.img}
-                lessons={category.lessons}
-                title={category.name}                
-              />
-            </CardContainer>
-          );
-        })}
+        {categorys.map((category) => (
+          <CardContainer key={category.id}>
+            <CategoryCard
+              img={category.img}
+              lessons={category.lessons}
+              title={category.name}
+            />
+          </CardContainer>
+        ))}
       </Content>
     </CategoryLayout>
   );
