@@ -23,8 +23,6 @@ export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
     <ClassLayout route='/aulas'>
       <VideoContainer>
         <iframe
-          width='100%'
-          height='100%'
           src={lesson.details.video}
           title='YouTube video player'
         ></iframe>

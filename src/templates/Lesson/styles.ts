@@ -8,6 +8,8 @@ export const VideoContainer = styled('div', {
     '& iframe': {
         borderTopLeftRadius: '24px',
         borderTopRightRadius: '24px',
+        width:'100%',
+        height:'100%'
     }
 })
 
