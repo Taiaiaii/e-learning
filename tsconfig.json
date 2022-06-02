@@ -19,7 +19,8 @@
       "@public/*": ["public/*"],
       "@components/*": ["src/components/*"],
       "@templates/*": ["src/templates/*"],
-      "@models/*": ["src/models/*"]
+      "@models/*": ["src/models/*"],
+      "@styles/*": ["src/styles/*"]
 
     }
   },

@@ -1,4 +1,4 @@
-import { styled } from '../../styles/stitches.config';
+import { styled } from '@styles/stitches.config';
 
 export const ClassContainer = styled('div', {
     width: '100%',
@@ -22,9 +22,9 @@ export const MainContainer = styled('div', {
     backgroundColor: '$background',
     borderTopLeftRadius: '24px',
     borderTopRightRadius: '24px',
-    height: '100vh',
+    height: 'auto',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
-    position: 'relative'
+    alignItems: 'center',
+    position: 'relative',
 })

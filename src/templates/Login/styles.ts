@@ -1,4 +1,4 @@
-import { styled } from '../../styles/stitches.config';
+import { styled } from '@styles/stitches.config';
 
 export const MainContainer = styled('div', {
     backgroundColor: '$purple',

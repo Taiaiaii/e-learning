@@ -1,4 +1,4 @@
-import { styled } from '../../styles/stitches.config';
+import { styled } from '@styles/stitches.config';
 
 export const VideoContainer = styled('div', {
     width: '100%',
@@ -8,16 +8,19 @@ export const VideoContainer = styled('div', {
     '& iframe': {
         borderTopLeftRadius: '24px',
         borderTopRightRadius: '24px',
+        width:'100%',
+        height:'100%'
     }
 })
 
 export const DescriptionContainer = styled('div', {
     width: '100%',
+    height: '100vh',
     padding: ' 0 25px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    height: '60%',
+
     '& h1': {
         fontSize: '3rem',
         fontWeight: '400',
@@ -44,10 +47,10 @@ export const ButtonContainer = styled('div', {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '10%',
     maxWidth: '100%',
     width: '100%',
     padding: '0 25px',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    paddingTop: '77px'
 })
 

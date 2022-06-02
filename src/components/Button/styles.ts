@@ -1,4 +1,4 @@
-import { styled } from '../../styles/stitches.config';
+import { styled } from '@styles/stitches.config';
 
 export const StyledButton = styled('button', {
     padding: '11px 24px',
@@ -13,6 +13,9 @@ export const StyledButton = styled('button', {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    '& svg ': {
+        marginLeft: 10,
+    },
     variants: {
         variant: {
             filled: {
@@ -33,16 +36,10 @@ export const StyledButton = styled('button', {
         },
         iconSide: {
             right: {
-                flexDirection: 'row-reverse',
-                '& svg ': {
-                    marginLeft: 10,
-                },
+                flexDirection: 'row-reverse',               
             },
             left: {
                 flexDirection: 'row',
-                '& svg ': {
-                    marginRight: 10,
-                },
             },
 
         }

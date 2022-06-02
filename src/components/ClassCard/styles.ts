@@ -1,4 +1,4 @@
-import { styled } from '../../styles/stitches.config';
+import { styled } from '@styles/stitches.config';
 
 export const ClassCardContainer = styled('div',{
     backgroundColor: '$principal',
@@ -10,7 +10,7 @@ export const ClassCardContainer = styled('div',{
     padding: '10 24px',
     '@media (max-width: 320px)': {
         width: '260px',
-        height: '85px'
+        height: '110px'
     }
 })
 
