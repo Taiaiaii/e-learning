@@ -10,7 +10,11 @@ export const CategoryCardContainer = styled('div', {
     padding: '25px',
     alignItems: 'flex-start',
     position: 'relative',
-    maxWidth: '156px'
+    maxWidth: '156px',
+    '@media (max-width: 320px)': {
+        width: '130px',
+        height: '172px'
+    }
 })
 
 export const CategoryContent = styled('div', {
