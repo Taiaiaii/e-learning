@@ -18,9 +18,21 @@ interface ICategoryLayoutProps {
   children: ReactNode;
 }
 
+type Tabs = 'home' | 'saved';
+
 export default function CategoryLayout({ children }: ICategoryLayoutProps) {
-  const [isHomeSelected, setSelectHome] = useState(true);
-  const [isSavedSelected, setSelectSaved] = useState(false);
+  
+  const [tabSelected, setTabSelected] = useState<Tabs>('home')
+ 
+  function isSelected(tab: Tabs){
+    return tabSelected === tab
+  }
+
+  function setTab(tab: Tabs){
+    return () => {
+      setTabSelected(tab)
+    }
+  }
 
   return (
     <CategoryContainer>
@@ -36,21 +48,15 @@ export default function CategoryLayout({ children }: ICategoryLayoutProps) {
       <MainContainer>{children}</MainContainer>
       <Footer>
         <Options
-          selected={isHomeSelected}
-          onClick={() => {
-            setSelectHome(true);
-            setSelectSaved(false);
-          }}
+          selected={isSelected('home')}
+          onClick={setTab('home')}
         >
           <Home />
           <p>Home</p>
         </Options>
         <Options
-          selected={isSavedSelected}
-          onClick={() => {
-            setSelectSaved(true);
-            setSelectHome(false);
-          }}
+          selected={isSelected('saved')}
+          onClick={setTab('saved')}
         >
           <Saved />
           <p>Salvos</p>
