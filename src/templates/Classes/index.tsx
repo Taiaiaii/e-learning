@@ -12,10 +12,12 @@ interface IClassesTemplateProps {
 }
 
 export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
-  const {push, query } = useRouter();
-  
-  console.log(query)
- 
+  const { push } = useRouter();
+
+  function goToLesson(id: number) {
+    push(`aulas/${id}`);
+  }
+
   return (
     <ClassLayout route='/home'>
       <Title>
@@ -31,9 +33,7 @@ export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
                 isConcluded={lesson.isConcluded}
                 time={lesson.time}
                 title={lesson.title}
-                handleClickCard={() => {
-                  push(`aulas/${lesson.id}`)
-                }}
+                handleClickCard={()=> goToLesson(lesson.id)}
               />
             </CardContainer>
           );
