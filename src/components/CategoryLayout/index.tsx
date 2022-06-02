@@ -3,7 +3,7 @@ import { ReactNode, useState } from 'react';
 import Home from '@public/home.svg';
 import Saved from '@public/saved.svg';
 import Logo from '@public/logo.svg';
-import LogoutButton from '@public/logout.svg';
+import LogoutButtonIcon from '@public/logout.svg';
 import SearchBar from '@components/SearchBar';
 import {
   CategoryContainer,
@@ -28,7 +28,7 @@ export default function CategoryLayout({ children }: ICategoryLayoutProps) {
         <Content>
           <Logo />
           <button aria-label='like'>
-            <LogoutButton />
+            <LogoutButtonIcon />
           </button>
         </Content>
         <SearchBar />
