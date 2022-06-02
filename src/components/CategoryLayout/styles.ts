@@ -1,4 +1,4 @@
-import { styled } from '../../styles/stitches.config';
+import { styled } from '@styles/stitches.config';
 
 export const CategoryContainer = styled('div', {
     width: '100%',
