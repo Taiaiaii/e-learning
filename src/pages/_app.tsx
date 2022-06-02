@@ -1,12 +1,18 @@
 import * as React from 'react';
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
 
 import '@styles/globalStyle.ts';
-import { globalStyles } from '@styles/globalStyle'
+import { globalStyles } from '@styles/globalStyle';
+import { TabProvider } from '@context/TabContext';
+
 
 function MyApp({ Component, pageProps }: AppProps) {
-  globalStyles()
-  return <Component {...pageProps} />
+  globalStyles();
+  return (
+    <TabProvider>
+      <Component {...pageProps} />
+    </TabProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;

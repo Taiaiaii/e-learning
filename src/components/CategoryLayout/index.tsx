@@ -1,4 +1,5 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
+import { useRouter } from 'next/router';
 
 import Home from '@public/home.svg';
 import Saved from '@public/saved.svg';
@@ -13,25 +14,24 @@ import {
   MainContainer,
   Options,
 } from './styles';
+import { useTab } from '@hooks/useTab';
+import { Tabs } from '@context/TabContext';
+
 
 interface ICategoryLayoutProps {
   children: ReactNode;
 }
 
-type Tabs = 'home' | 'saved';
-
 export default function CategoryLayout({ children }: ICategoryLayoutProps) {
-  
-  const [tabSelected, setTabSelected] = useState<Tabs>('home')
- 
-  function isSelected(tab: Tabs){
-    return tabSelected === tab
-  }
+  const { push } = useRouter();
+  const { isSelected, setTab } = useTab();
 
-  function setTab(tab: Tabs){
+  function handleOptionClick(tab: Tabs, route: string) {
     return () => {
-      setTabSelected(tab)
+      setTab(tab);
+      push(route);
     }
+    
   }
 
   return (
@@ -49,14 +49,14 @@ export default function CategoryLayout({ children }: ICategoryLayoutProps) {
       <Footer>
         <Options
           selected={isSelected('home')}
-          onClick={setTab('home')}
+          onClick={handleOptionClick('home', '/home')}
         >
           <Home />
           <p>Home</p>
         </Options>
         <Options
           selected={isSelected('saved')}
-          onClick={setTab('saved')}
+          onClick={handleOptionClick('saved', '/meuscursos')}
         >
           <Saved />
           <p>Salvos</p>
