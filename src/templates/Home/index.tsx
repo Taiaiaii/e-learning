@@ -1,8 +1,8 @@
 import { ICategory } from 'models/ICategory';
 
 import CategoryLayout from '@components/CategoryLayout';
-import { CardContainer, Content, Title } from './styles';
 import CategoryCard from '@components/CategoryCard';
+import { CardContainer, Content, Title } from './styles';
 
 interface IHomeTemplateProps {
     categorys: ICategory[];
