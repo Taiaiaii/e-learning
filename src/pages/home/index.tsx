@@ -1,11 +1,10 @@
 import React from 'react';
 
-import CategoryLayout from '@components/CategoryLayout';
+import {MOCKED_CATEGORY_LIST} from '../../../.mocks/constants/MOCKED_CATEGORY_LIST'
+import { HomeTemplate } from '@templates/Home';
 
 export default function Home() {
   return (
-    <CategoryLayout>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero tempora nesciunt, hic aperiam molestiae repudiandae sint cum autem ut voluptates, sapiente laudantium ex, veritatis dolore fuga officia non! Quam, non!</p>
-    </CategoryLayout>
+   <HomeTemplate categorys={MOCKED_CATEGORY_LIST}/>
   );
 }

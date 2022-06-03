@@ -1,39 +1,39 @@
-import { ICategory } from '../../models/ICategory'
+import { ICategory } from '@models/ICategory'
 
 export const MOCKED_CATEGORY_LIST: ICategory[] = [
     {
-        category_id: '0102',
-        category_name: 'Matemática',
+        id: '0102',
+        name: 'Matemática',
         img: '/math.svg',
         lessons: '16',
     },
     {
-        category_id: '0103',
-        category_name: 'Física',
+        id: '0103',
+        name: 'Física',
         img: '/physics.svg',
         lessons: '25',
     },
     {
-        category_id: '0104',
-        category_name: 'Inglês',
+        id: '0104',
+        name: 'Inglês',
         img: '/english.svg',
         lessons: '6',
     },
     {
-        category_id:'0105',
-        category_name: 'Química',
+        id:'0105',
+        name: 'Química',
         img: '/chemistry.svg',
         lessons: '61',
     },
     {
-        category_id: '0106',
-        category_name: 'Oratória',
+        id: '0106',
+        name: 'Oratória',
         img: '/talk.svg',
         lessons: '15',
     },
     {
-        category_id: '0107',
-        category_name: 'Caligrafia',
+        id: '0107',
+        name: 'Caligrafia',
         img: '/build.svg',
         lessons: '3',
     },
