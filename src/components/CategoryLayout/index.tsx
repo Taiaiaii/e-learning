@@ -49,7 +49,7 @@ export default function CategoryLayout({ children }: ICategoryLayoutProps) {
           selected={isSavedSelected}
           onClick={() => {
             setSelectSaved(true);
-            setSelectHome(false)
+            setSelectHome(false);
           }}
         >
           <Saved />

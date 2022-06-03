@@ -7,10 +7,10 @@ export const CategoryContainer = styled('div', {
 })
 
 export const Header = styled('div', {
-    display: 'flex',  
+    display: 'flex',
     flexWrap: 'wrap',
     width: '100%',
-    justifyContent: 'center',    
+    justifyContent: 'center',
     '& button': {
         backgroundColor: 'transparent',
         border: 'none',
