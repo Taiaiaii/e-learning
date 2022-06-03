@@ -19,8 +19,7 @@ export function TabProvider({ children }: ITapProviderProps) {
   }
 
   function setTab(tab: Tabs) {
-      setTabSelected(tab);
-   
+      setTabSelected(tab);  
   }
 
   return (

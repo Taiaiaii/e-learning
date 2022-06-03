@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { ICategory } from '@models/ICategory';
 import CategoryLayout from '@components/CategoryLayout';
 import { CardContainer, Content, Title } from './styles';
@@ -9,20 +11,31 @@ interface IMyCoursesTemplateProps {
 }
 
 export function MyCoursesTemplate({ categorys }: IMyCoursesTemplateProps) {
+
+  const [currentCategorys, setCurrentCategorys] = useState<ICategory[]>(categorys)
+
+  function deleteCategory(id:string){
+    console.log('fui clicado')
+    return setCurrentCategorys(
+      currentCategorys.filter((categorys) => categorys.id !== id)     
+    );   
+  }
+  
+  console.log(currentCategorys);
   return (
     <CategoryLayout>
       <Title>
         <h1>Cursos salvos</h1>
       </Title>
       <Content>
-        {categorys.map((category) => {
+        {currentCategorys.map((category) => {
           return (
             <CardContainer key={category.id}>
               <CategoryCard
                 img={category.img}
                 lessons={category.lessons}
                 title={category.name}
-                deleteIcon={<DeleteComponent/>}
+                deleteIcon={<DeleteComponent handleDelete={()=> deleteCategory(category.id)}/>}
               />
             </CardContainer>
           );
