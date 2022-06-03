@@ -1,5 +1,10 @@
 import { ReactNode, useState } from 'react';
 
+import Home from '@public/home.svg';
+import Saved from '@public/saved.svg';
+import Logo from '@public/logo.svg';
+import LogoutButton from '@public/logout.svg';
+import SearchBar from '@components/SearchBar';
 import {
   CategoryContainer,
   Content,
@@ -8,11 +13,6 @@ import {
   MainContainer,
   Options,
 } from './styles';
-import Logo from '@public/logo.svg';
-import LogoutButton from '@public/logout.svg';
-import SearchBar from '@components/SearchBar';
-import Home from '@public/home.svg';
-import Saved from '@public/saved.svg';
 
 interface ICategoryLayoutProps {
   children: ReactNode;
