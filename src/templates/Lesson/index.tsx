@@ -1,8 +1,6 @@
-
-import { IClass } from 'models/IClass';
-
 import ArrowBack from '@public/arrow-back.svg';
 import ArrowFoward from '@public/arrow-foward.svg';
+import { IClass } from '@models/IClass';
 import ClassLayout from '@components/ClassLayout';
 import { Button } from '@components/Button';
 import {
@@ -11,7 +9,6 @@ import {
   DetailsContainer,
   VideoContainer,
 } from './styles';
-
 
 interface ILessonTemplateProps {
   lesson: IClass;

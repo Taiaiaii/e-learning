@@ -1,7 +1,7 @@
-import { ICategory } from 'models/ICategory';
-import { IClass } from 'models/IClass';
 import { useRouter } from 'next/router';
 
+import { ICategory } from '@models/ICategory';
+import { IClass } from '@models/IClass';
 import ClassCard from '@components/ClassCard';
 import ClassLayout from '@components/ClassLayout';
 import { CardContainer, Content, Title } from './styles';
