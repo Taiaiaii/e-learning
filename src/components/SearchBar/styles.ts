@@ -33,5 +33,5 @@ export const StyledInput = styled('input', {
     color: '$base',
     fontSize: '2rem',
     outline: 'none',
-    border: 'none'
+    border: 'none',
 })
