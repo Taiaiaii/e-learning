@@ -9,11 +9,12 @@ interface IClassCardProps {
     title: string;
     time: number;
     classNumber: string;
+    handleClickCard: () => void
 }
 
-export default function ClassCard ({isConcluded,time, title, classNumber}: IClassCardProps){
+export default function ClassCard ({isConcluded,time, title, classNumber, handleClickCard}: IClassCardProps){
     return (
-      <ClassCardContainer>
+      <ClassCardContainer onClick={handleClickCard}>
         <IconContainer concluded={isConcluded}>
           <Icon />
         </IconContainer>

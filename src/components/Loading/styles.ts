@@ -1,6 +1,6 @@
 import { keyframes } from '@stitches/react';
 
-import { styled } from '../../styles/stitches.config';
+import { styled } from '@styles/stitches.config';
 
 const dots = keyframes({
     '0% ': {
