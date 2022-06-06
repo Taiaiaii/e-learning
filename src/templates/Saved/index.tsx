@@ -7,28 +7,26 @@ import CategoryCard from '@components/CategoryCard';
 import DeleteComponent from '@components/DeleteComponent';
 
 interface IMyCoursesTemplateProps {
-  categorys: ICategory[];
+  categories: ICategory[];
 }
 
-export function MyCoursesTemplate({ categorys }: IMyCoursesTemplateProps) {
+export function SavedCategoriesTemplate({ categories }: IMyCoursesTemplateProps) {
 
-  const [currentCategorys, setCurrentCategorys] = useState<ICategory[]>(categorys)
+  const [currentCategories, setCurrentCategories] = useState<ICategory[]>(categories)
 
   function deleteCategory(id:string){
-    console.log('fui clicado')
-    return setCurrentCategorys(
-      currentCategorys.filter((categorys) => categorys.id !== id)     
+    return setCurrentCategories(
+      currentCategories.filter((categories) => categories.id !== id)     
     );   
   }
-  
-  console.log(currentCategorys);
+
   return (
     <CategoryLayout>
       <Title>
         <h1>Cursos salvos</h1>
       </Title>
       <Content>
-        {currentCategorys.map((category) => {
+        {currentCategories.map((category) => {
           return (
             <CardContainer key={category.id}>
               <CategoryCard
