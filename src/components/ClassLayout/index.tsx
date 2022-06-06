@@ -10,7 +10,7 @@ import { ClassContainer, Header, MainContainer } from './styles';
 interface IClassLayoutProps {
   children: ReactNode;
   route: string;
-  handleClick: () => void
+  handleClick?: () => void
 }
 
 export default function ClassLayout({ children, route, handleClick }: IClassLayoutProps) {

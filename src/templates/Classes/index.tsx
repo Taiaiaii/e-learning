@@ -5,6 +5,7 @@ import { IClass } from '@models/IClass';
 import ClassCard from '@components/ClassCard';
 import ClassLayout from '@components/ClassLayout';
 import { CardContainer, Content, Title } from './styles';
+import { useCategories } from '@hooks/useCategories';
 
 interface IClassesTemplateProps {
   category: ICategory;
@@ -13,18 +14,20 @@ interface IClassesTemplateProps {
 
 export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
   const { push } = useRouter();
+  const { addSavedCategory } = useCategories();
 
   function goToLesson(id: number) {
     push(`aulas/${id}`);
   }
 
-  function handleClickLike(){
-    push('/meuscursos')
-    
+  function handleClickLike(id: string) {
+      addSavedCategory(id);
+      push('/meuscursos');
+ 
   }
 
   return (
-    <ClassLayout route='/home' handleClick={()=> handleClickLike()}>
+    <ClassLayout route='/home' handleClick={()=>handleClickLike(category.id)}>
       <Title>
         <h1>{category.name}</h1>
         <p>{category.lessons} aulas</p>

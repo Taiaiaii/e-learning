@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { ICategory } from '@models/ICategory';
 import CategoryLayout from '@components/CategoryLayout';
 import { CardContainer, Content, Title } from './styles';
