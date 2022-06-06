@@ -18,8 +18,13 @@ export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
     push(`aulas/${id}`);
   }
 
+  function handleClickLike(){
+    push('/meuscursos')
+    
+  }
+
   return (
-    <ClassLayout route='/home'>
+    <ClassLayout route='/home' handleClick={()=> handleClickLike()}>
       <Title>
         <h1>{category.name}</h1>
         <p>{category.lessons} aulas</p>

@@ -10,9 +10,10 @@ import { ClassContainer, Header, MainContainer } from './styles';
 interface IClassLayoutProps {
   children: ReactNode;
   route: string;
+  handleClick: () => void
 }
 
-export default function ClassLayout({ children, route }: IClassLayoutProps) {
+export default function ClassLayout({ children, route, handleClick }: IClassLayoutProps) {
   const { push } = useRouter();
   function handleClickArrow(route: string) {
     push(`/${route}`);
@@ -24,7 +25,7 @@ export default function ClassLayout({ children, route }: IClassLayoutProps) {
           <ArrowBack />
         </button>
         <Logo />
-        <button aria-label='like'>
+        <button aria-label='like' onClick={handleClick}>
           <Like />
         </button>
       </Header>
