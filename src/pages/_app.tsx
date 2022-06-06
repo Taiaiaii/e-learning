@@ -3,15 +3,15 @@ import type { AppProps } from 'next/app';
 
 import '@styles/globalStyle.ts';
 import { globalStyles } from '@styles/globalStyle';
-import { TabProvider } from '@context/TabContext';
+import { TabNavigatorProvider } from '@context/TabContext';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
   globalStyles();
   return (
-    <TabProvider>
+    <TabNavigatorProvider>
       <Component {...pageProps} />
-    </TabProvider>
+    </TabNavigatorProvider>
   );
 }
 
