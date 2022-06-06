@@ -10,7 +10,6 @@ import {
   VideoContainer,
 } from './styles';
 
-
 interface ILessonTemplateProps {
   lesson: IClass;
 }
