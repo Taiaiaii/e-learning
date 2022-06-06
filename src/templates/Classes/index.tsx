@@ -25,19 +25,17 @@ export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
         <p>{category.lessons} aulas</p>
       </Title>
       <Content>
-        {classes.map((lesson) => {
-          return (
-            <CardContainer key={lesson.id}>
-              <ClassCard
-                classNumber={lesson.classNumber}
-                isConcluded={lesson.isConcluded}
-                time={lesson.time}
-                title={lesson.title}
-                handleClickCard={()=> goToLesson(lesson.id)}
-              />
-            </CardContainer>
-          );
-        })}
+        {classes.map((lesson) => (
+          <CardContainer key={lesson.id}>
+            <ClassCard
+              classNumber={lesson.classNumber}
+              isConcluded={lesson.isConcluded}
+              time={lesson.time}
+              title={lesson.title}
+              handleClickCard={() => goToLesson(lesson.id)}
+            />
+          </CardContainer>
+        ))}
       </Content>
     </ClassLayout>
   );

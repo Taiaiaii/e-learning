@@ -1,5 +1,22 @@
 import { styled } from '@styles/stitches.config';
 
+const IconsSideStyles = {
+    right: {
+        flexDirection: 'row-reverse',
+        '& svg ': {
+            marginLeft: 10,
+        },
+
+    },
+    left: {
+        flexDirection: 'row',
+        '& svg ': {
+            marginRight: 10,
+        },
+    },
+
+}
+
 export const StyledButton = styled('button', {
     padding: '11px 24px',
     fontSize: '1.5rem',
@@ -13,9 +30,7 @@ export const StyledButton = styled('button', {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    '& svg ': {
-        marginLeft: 10,
-    },
+    
     variants: {
         variant: {
             filled: {
@@ -34,14 +49,6 @@ export const StyledButton = styled('button', {
                 padding: '19px 82px',
             },
         },
-        iconSide: {
-            right: {
-                flexDirection: 'row-reverse',               
-            },
-            left: {
-                flexDirection: 'row',
-            },
-
-        }
+        iconSide: IconsSideStyles
     }
 })
