@@ -5,9 +5,11 @@ import { MOCKED_SAVED_COURSES } from '../../../.mocks/constants/MOCKED_SAVED_COU
 import { MOCKED_CATEGORY_LIST } from '../../../.mocks/constants/MOCKED_CATEGORY_LIST';
 
 interface ICategoriesContextProps {
-  deleteCategory: (id: string) => void;
-  addSavedCategory: (id: string) => void;
+  deleteCategory: (id: string) => ICategory[];
+  addSavedCategory: (id: string) => ICategory[];
+  getCategory: (id:string) => ICategory | undefined
   currentSavedCategories: ICategory[];
+  allCategories: ICategory[];
 }
 
 interface ITapProviderProps {
@@ -23,9 +25,10 @@ export function CategoriesProvider({ children }: ITapProviderProps) {
   const [allCategories] = useState<ICategory[]>(MOCKED_CATEGORY_LIST);
 
   function deleteCategory(id: string) {
-    return setSavedCurrentCategories(
+    setSavedCurrentCategories(
       currentSavedCategories.filter((categories) => categories.id !== id)
     );
+    return currentSavedCategories
   }
 
   function getCategory(id: string) {
@@ -43,7 +46,7 @@ export function CategoriesProvider({ children }: ITapProviderProps) {
 
   return (
     <CategoriesContext.Provider
-      value={{ deleteCategory, currentSavedCategories, addSavedCategory }}
+      value={{ deleteCategory, currentSavedCategories, addSavedCategory, allCategories, getCategory }}
     >
       {children}
     </CategoriesContext.Provider>

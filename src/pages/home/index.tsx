@@ -1,10 +1,11 @@
 import React from 'react';
 
-import {MOCKED_CATEGORY_LIST} from '../../../.mocks/constants/MOCKED_CATEGORY_LIST'
 import { HomeTemplate } from '@templates/Home';
+import { useCategories } from '@hooks/useCategories';
 
 export default function Home() {
+  const {allCategories} = useCategories()
   return (
-   <HomeTemplate categorys={MOCKED_CATEGORY_LIST}/>
+   <HomeTemplate categorys={allCategories}/>
   );
 }
