@@ -1,42 +1,30 @@
 import { createContext, ReactNode, useState } from 'react';
 
-import { MOCKED_SAVED_COURSES } from '../../../.mocks/constants/MOCKED_SAVED_COURSES';
-import { MOCKED_CATEGORY_LIST } from '../../../.mocks/constants/MOCKED_CATEGORY_LIST';
-import { MOCKED_CLASSES } from '../../../.mocks/constants/MOCKED_CLASSES';
-import { ICategory } from '@models/ICategory';
-import { ICourse } from '@models/ICourse';
-import { IClasses } from '@models/IClasses';
+import { MOCKED_CATEGORY_LIST, MOCKED_CLASSES, MOCKED_SAVED_COURSES } from '../../../.mocks/constants'
+import { ICategory, ICourse, IClasses } from '@models/index'
 
 interface ICategoriesContextProps {
-  deleteCategory: (id: string) => ICategory[];
-  addSavedCategory: (id: string) => ICategory[];
+  allCategories: ICategory[];
+  currentSavedCategories: ICategory[];
+  currentClasses: ICourse[] | undefined;
   getCategory: (id: string) => ICategory | undefined;
   getCategoryClasses: (id: string) => ICourse[] | undefined;
-  currentSavedCategories: ICategory[];
-  allCategories: ICategory[];
-  currentClasses: ICourse[] | undefined;
+  addSavedCategory: (id: string) => ICategory[];
+  deleteCategory: (id: string) => ICategory[];
 }
 
-interface ITapProviderProps {
+interface ICategoriesProviderProps {
   children: ReactNode;
 }
 
 export const CategoriesContext = createContext({} as ICategoriesContextProps);
 
-export function CategoriesProvider({ children }: ITapProviderProps) {
-  const [currentSavedCategories, setSavedCurrentCategories] =
-    useState<ICategory[]>(MOCKED_SAVED_COURSES);
+export function CategoriesProvider({ children }: ICategoriesProviderProps) {
 
   const [allCategories] = useState<ICategory[]>(MOCKED_CATEGORY_LIST);
   const [allCategoriesClasses] = useState<IClasses[]>(MOCKED_CLASSES);
-  const [currentClasses, setCurrentClasses] = useState<ICourse[] | undefined>([])
-
-  function deleteCategory(id: string) {
-    setSavedCurrentCategories(
-      currentSavedCategories.filter((categories) => categories.id !== id)
-    );
-    return currentSavedCategories
-  }
+  const [currentSavedCategories, setSavedCurrentCategories] = useState<ICategory[]>(MOCKED_SAVED_COURSES);
+  const [currentClasses, setCurrentClasses] = useState<ICourse[] | undefined>([]);
 
   function getCategory(id: string) {
     return allCategories.find((category) => category.id === id);
@@ -50,8 +38,7 @@ export function CategoriesProvider({ children }: ITapProviderProps) {
     )
     setCurrentClasses(classes?.classes)
         return currentClasses
-    }
-    
+    }   
   }
 
   function addSavedCategory(id: string) {
@@ -63,16 +50,23 @@ export function CategoriesProvider({ children }: ITapProviderProps) {
     return currentSavedCategories;
   }
 
+  function deleteCategory(id: string) {
+    setSavedCurrentCategories(
+      currentSavedCategories.filter((categories) => categories.id !== id)
+    );
+    return currentSavedCategories;
+  }
+
   return (
     <CategoriesContext.Provider
       value={{
-        deleteCategory,
-        currentSavedCategories,
-        addSavedCategory,
         allCategories,
+        currentSavedCategories,
+        currentClasses,
         getCategory,
         getCategoryClasses,
-        currentClasses,
+        addSavedCategory,
+        deleteCategory,
       }}
     >
       {children}

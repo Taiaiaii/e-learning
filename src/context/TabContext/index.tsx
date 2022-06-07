@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from 'react';
+
 export type Tabs = 'home' | 'saved' | null;
 interface ITabContextProps {
   isSelected:(tab: Tabs) => boolean;
@@ -8,6 +9,7 @@ interface ITabContextProps {
 interface ITapProviderProps {
   children: ReactNode;
 }
+
 export const TabContext = createContext({} as ITabContextProps);
 
 export function TabProvider({ children }: ITapProviderProps) {

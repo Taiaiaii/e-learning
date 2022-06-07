@@ -6,6 +6,8 @@ import Saved from '@public/saved.svg';
 import Logo from '@public/logo.svg';
 import LogoutButtonIcon from '@public/logout.svg';
 import SearchBar from '@components/SearchBar';
+import { useTab } from '@hooks/useTab';
+import { Tabs } from '@context/TabContext';
 import {
   CategoryContainer,
   Content,
@@ -14,8 +16,6 @@ import {
   MainContainer,
   Options,
 } from './styles';
-import { useTab } from '@hooks/useTab';
-import { Tabs } from '@context/TabContext';
 
 
 interface ICategoryLayoutProps {
