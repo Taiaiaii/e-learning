@@ -56,7 +56,7 @@ export default function CategoryLayout({ children }: ICategoryLayoutProps) {
         </Options>
         <Options
           selected={isSelected('saved')}
-          onClick={handleOptionClick('saved', '/meuscursos')}
+          onClick={handleOptionClick('saved', '/salvos')}
         >
           <Saved />
           <p>Salvos</p>

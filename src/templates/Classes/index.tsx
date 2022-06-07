@@ -6,10 +6,12 @@ import ClassCard from '@components/ClassCard';
 import ClassLayout from '@components/ClassLayout';
 import { CardContainer, Content, Title } from './styles';
 import { useCategories } from '@hooks/useCategories';
+import { ICourse } from '@models/ICourse';
+import { IClasses } from '@models/IClasses';
 
 interface IClassesTemplateProps {
   category: ICategory;
-  classes: IClass[];
+  classes: ICourse[];
 }
 
 export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
@@ -22,12 +24,11 @@ export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
 
   function handleClickLike(id: string) {
       addSavedCategory(id);
-      push('/meuscursos');
- 
+      push('/salvos');
   }
 
   return (
-    <ClassLayout route='/home' handleClick={()=>handleClickLike(category.id)}>
+    <ClassLayout handleClick={()=>handleClickLike(category.id)}>
       <Title>
         <h1>{category.name}</h1>
         <p>{category.lessons} aulas</p>

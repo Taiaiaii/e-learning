@@ -9,19 +9,18 @@ import { ClassContainer, Header, MainContainer } from './styles';
 
 interface IClassLayoutProps {
   children: ReactNode;
-  route: string;
   handleClick?: () => void
 }
 
-export default function ClassLayout({ children, route, handleClick }: IClassLayoutProps) {
-  const { push } = useRouter();
-  function handleClickArrow(route: string) {
-    push(`/${route}`);
+export default function ClassLayout({ children, handleClick }: IClassLayoutProps) {
+  const {  back } = useRouter();
+  function handleClickArrow() {
+    back()
   }
   return (
     <ClassContainer>
       <Header>
-        <button aria-label='arrow-back' onClick={() => handleClickArrow(route)}>
+        <button aria-label='arrow-back' onClick={() => handleClickArrow()}>
           <ArrowBack />
         </button>
         <Logo />

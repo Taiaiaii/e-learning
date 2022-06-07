@@ -1,9 +1,20 @@
-import { ClassesTemplate } from "@templates/Classes";
-import {MOCKED_CATEGORY_LIST} from '../../../.mocks/constants/MOCKED_CATEGORY_LIST'
-import {MOCKED_CLASSES} from '../../../.mocks/constants/MOCKED_CLASSES'
+import { useRouter } from 'next/router';
 
-export default function Classes (){
-    return (
-        <ClassesTemplate category={MOCKED_CATEGORY_LIST[3]} classes={MOCKED_CLASSES}/>
-    )
+import { ClassesTemplate } from '@templates/Classes';
+import { useCategories } from '@hooks/useCategories';
+
+export default function Classes() {
+  const {
+    query: { id },
+  } = useRouter();
+
+  const {getCategory, getCategoryClasses} = useCategories()
+  
+  const category = getCategory(String(id))
+  const classes = getCategoryClasses(String(id));
+
+  
+  return (
+    classes && category && <ClassesTemplate category={category} classes={classes} />
+  );
 }

@@ -17,7 +17,7 @@ interface ILessonTemplateProps {
 export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
   
   return (
-    <ClassLayout route='/aulas'>
+    <ClassLayout >
       <VideoContainer>
         <iframe
           src={lesson.details.video}

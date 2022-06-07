@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+
 import { ICategory } from '@models/ICategory';
 import CategoryLayout from '@components/CategoryLayout';
 import CategoryCard from '@components/CategoryCard';
@@ -8,6 +10,10 @@ interface IHomeTemplateProps {
 }
 
 export function HomeTemplate({ categorys }: IHomeTemplateProps) {
+  const {push} = useRouter()
+  function handleClickCard(id:string){
+    push(`categorias/${id}`)
+  }
   return (
     <CategoryLayout>
       <Title>
@@ -21,6 +27,7 @@ export function HomeTemplate({ categorys }: IHomeTemplateProps) {
               img={category.img}
               lessons={category.lessons}
               title={category.name}
+              handleClick={()=> handleClickCard(category.id)}
             />
           </CardContainer>
         ))}
