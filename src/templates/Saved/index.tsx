@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { ICategory } from '@models/ICategory';
+import { ICategory } from '@models';
 import CategoryLayout from '@components/CategoryLayout';
 import CategoryCard from '@components/CategoryCard';
 import DeleteComponent from '@components/DeleteComponent';

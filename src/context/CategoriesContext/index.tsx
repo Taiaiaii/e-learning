@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useState } from 'react';
 
 import { MOCKED_CATEGORY_LIST, MOCKED_CLASSES, MOCKED_SAVED_COURSES } from '../../../.mocks/constants'
-import { ICategory, ICourse, IClasses } from '@models/index'
+import { ICategory, ICourse, IClasses } from '@models'
 
 interface ICategoriesContextProps {
   allCategories: ICategory[];

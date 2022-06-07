@@ -7,7 +7,7 @@ import Logo from '@public/logo.svg';
 import LogoutButtonIcon from '@public/logout.svg';
 import SearchBar from '@components/SearchBar';
 import { useTab } from '@hooks/useTab';
-import { Tabs } from '@context/TabContext';
+import { Tabs } from '@context/TabNavigatorContext';
 import {
   CategoryContainer,
   Content,

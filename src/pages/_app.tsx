@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app';
 
 import '@styles/globalStyle.ts';
 import { globalStyles } from '@styles/globalStyle';
-import { AppProvider } from '@context/index';
+import { AppProvider } from '@context';
 
 function MyApp({ Component, pageProps }: AppProps) {
   globalStyles();

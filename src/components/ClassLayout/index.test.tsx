@@ -8,7 +8,7 @@ const mockedPush = jest.fn();
 jest.mock('next/router', () => ({
   useRouter() {
     return {
-      push: mockedPush,
+      back: mockedPush,
     };
   },
 }));
@@ -16,7 +16,7 @@ jest.mock('next/router', () => ({
 describe('ClassLayout Componente', () => {
   it('Should call route on click arrow button', () => {
     render(
-      <ClassLayout route='/'>
+      <ClassLayout>
         <p>Teste</p>
       </ClassLayout>
     );
@@ -28,7 +28,7 @@ describe('ClassLayout Componente', () => {
   });
   it('Render children', () => {
     render(
-      <ClassLayout route='/'>
+      <ClassLayout >
         <p>Teste</p>
       </ClassLayout>
     );

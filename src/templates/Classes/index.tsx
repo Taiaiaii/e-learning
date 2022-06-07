@@ -1,13 +1,10 @@
 import { useRouter } from 'next/router';
 
-import { ICategory } from '@models/ICategory';
-import { IClass } from '@models/IClass';
 import ClassCard from '@components/ClassCard';
 import ClassLayout from '@components/ClassLayout';
-import { CardContainer, Content, Title } from './styles';
 import { useCategories } from '@hooks/useCategories';
-import { ICourse } from '@models/ICourse';
-import { IClasses } from '@models/IClasses';
+import { ICategory, ICourse } from '@models';
+import { CardContainer, Content, Title } from './styles';
 
 interface IClassesTemplateProps {
   category: ICategory;
@@ -15,6 +12,7 @@ interface IClassesTemplateProps {
 }
 
 export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
+
   const { push } = useRouter();
   const { addSavedCategory } = useCategories();
 

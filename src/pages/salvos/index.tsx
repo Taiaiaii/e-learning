@@ -6,6 +6,7 @@ import { SavedCategoriesTemplate } from '@templates/Saved';
 
 
 export default function SavedCategories() {
+  
     const { currentSavedCategories } = useCategories()
     const {setTab} = useTab()
 
