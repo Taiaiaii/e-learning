@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import { CategoriesProvider } from './CategoriesContext';
-import { TabProvider } from './TabContext';
+import { TabNavigatorProvider } from './TabNavigatorContext';
 
 type AppProviderProps = {
   children: ReactNode;
@@ -9,6 +9,6 @@ type AppProviderProps = {
 
 export const AppProvider = ({ children }: AppProviderProps) => (
   <CategoriesProvider>
-    <TabProvider>{children}</TabProvider>
+    <TabNavigatorProvider>{children}</TabNavigatorProvider>
   </CategoriesProvider>
 );
