@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from 'react';
-export type Tabs = 'home' | 'saved';
+export type Tabs = 'home' | 'saved' | null;
 interface ITabContextProps {
   isSelected:(tab: Tabs) => boolean;
   setTab: (tab: Tabs) => void;
@@ -12,7 +12,7 @@ export const TabContext = createContext({} as ITabContextProps);
 
 export function TabProvider({ children }: ITapProviderProps) {
  
-  const [tabSelected, setTabSelected] = useState<Tabs>('home');
+  const [tabSelected, setTabSelected] = useState<Tabs>(null);
 
   function isSelected(tab: Tabs) {
     return tabSelected === tab;
