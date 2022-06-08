@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react';
 import { useRouter } from 'next/router';
 
 import ClassCard from '@components/ClassCard';
@@ -12,21 +13,21 @@ interface IClassesTemplateProps {
 }
 
 export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
-
   const { push } = useRouter();
   const { addSavedCategory } = useCategories();
 
-  function goToLesson(id: number) {
+  const goToLesson = (event: MouseEvent<HTMLDivElement>) => {
+    const id = event.currentTarget.id;
     push(`aulas/${id}`);
-  }
+  };
 
   function handleClickLike(id: string) {
-      addSavedCategory(id);
-      push('/salvos');
+    addSavedCategory(id);
+    push('/salvos');
   }
 
   return (
-    <ClassLayout handleClick={()=>handleClickLike(category.id)}>
+    <ClassLayout handleClick={() => handleClickLike(category.id)}>
       <Title>
         <h1>{category.name}</h1>
         <p>{category.lessons} aulas</p>
@@ -39,7 +40,8 @@ export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
               isConcluded={lesson.isConcluded}
               time={lesson.time}
               title={lesson.title}
-              handleClickCard={() => goToLesson(lesson.id)}
+              handleClick={goToLesson}
+              id={lesson.id}
             />
           </CardContainer>
         ))}

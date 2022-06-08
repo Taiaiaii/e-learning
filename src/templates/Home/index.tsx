@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router';
 
+import { MouseEvent } from 'react';
+
 import { ICategory } from '@models';
 import CategoryLayout from '@components/CategoryLayout';
 import CategoryCard from '@components/CategoryCard';
@@ -11,9 +13,12 @@ interface IHomeTemplateProps {
 
 export function HomeTemplate({ categorys }: IHomeTemplateProps) {
   const {push} = useRouter()
-  function handleClickCard(id:string){
-    push(`categorias/${id}`)
+  
+  function handleClickCard(event: MouseEvent<HTMLDivElement>) {
+    const id = event.currentTarget.id
+      push(`categorias/${id}`);   
   }
+  
   return (
     <CategoryLayout>
       <Title>
@@ -27,7 +32,8 @@ export function HomeTemplate({ categorys }: IHomeTemplateProps) {
               img={category.img}
               lessons={category.lessons}
               title={category.name}
-              handleClick={()=> handleClickCard(category.id)}
+              handleClick={handleClickCard}
+              id={category.id}
             />
           </CardContainer>
         ))}

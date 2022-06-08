@@ -1,22 +1,23 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import Image from "next/image";
 import { ReactElement } from "react";
 
 import { CategoryCardContainer, CategoryContent, CategoryTitle, ChildrenContainer, Lessons } from "./styles";
 
-interface ICategoryCardProps  {
-  img: string ;
+interface ICategoryCardProps {
+  img: string;
   title: string;
   lessons: string;
-  deleteIcon?: ReactElement
-  handleClick: () => void
+  id: string
+  deleteIcon?: ReactElement;
+  handleClick: MouseEventHandler<HTMLDivElement>;
 }
 
-export default function CategoryCard ({img, title, lessons, deleteIcon, handleClick}: ICategoryCardProps) {
+export default function CategoryCard ({img, title, lessons, deleteIcon, handleClick, id}: ICategoryCardProps) {
     return (
       <CategoryCardContainer>
         <Image src={img} width={64} height={64} alt='' />
-        <CategoryContent onClick={handleClick}>
+        <CategoryContent onClick={handleClick} id={id}>
           <CategoryTitle>{title}</CategoryTitle>
           <Lessons>{lessons} Aulas</Lessons>
         </CategoryContent>

@@ -8,7 +8,7 @@ export default function Lesson() {
 
   const { currentClasses } = useCategories()
 
-  const lesson = currentClasses?.find((item) => item.id === Number(id));
+  const lesson = currentClasses?.find((item) => item.id === id);
 
   return lesson && <LessonTemplate lesson={lesson} />;
 }
