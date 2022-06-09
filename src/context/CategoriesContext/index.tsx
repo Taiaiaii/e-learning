@@ -7,7 +7,7 @@ import { MOCKED_CATEGORY_LIST } from '../../../.mocks/constants/MOCKED_CATEGORY_
 interface ICategoriesContextProps {
   deleteCategory: (id: string) => void;
   addSavedCategory: (id: string) => void;
-  currentSavedCategories: ICategory[];
+  savedCategories: ICategory[];
 }
 
 interface ITapProviderProps {
@@ -17,14 +17,14 @@ interface ITapProviderProps {
 export const CategoriesContext = createContext({} as ICategoriesContextProps);
 
 export function CategoriesProvider({ children }: ITapProviderProps) {
-  const [currentSavedCategories, setSavedCurrentCategories] =
+  const [savedCategories, setSavedCategories] =
     useState<ICategory[]>(MOCKED_SAVED_COURSES);
 
   const [allCategories] = useState<ICategory[]>(MOCKED_CATEGORY_LIST);
 
   function deleteCategory(id: string) {
-    return setSavedCurrentCategories(
-      currentSavedCategories.filter((categories) => categories.id !== id)
+    return setSavedCategories(
+      savedCategories.filter((categories) => categories.id !== id)
     );
   }
 
@@ -35,15 +35,14 @@ export function CategoriesProvider({ children }: ITapProviderProps) {
   function addSavedCategory(id: string) {
     const category = getCategory(id);
     if (category) {
-      currentSavedCategories.splice(0,0,category);
-      setSavedCurrentCategories(currentSavedCategories)
+      setSavedCategories((prevState)=> ([...prevState, category]))  
     }
-    return currentSavedCategories;
+    return savedCategories
   }
 
   return (
     <CategoriesContext.Provider
-      value={{ deleteCategory, currentSavedCategories, addSavedCategory }}
+      value={{ deleteCategory, savedCategories, addSavedCategory }}
     >
       {children}
     </CategoriesContext.Provider>

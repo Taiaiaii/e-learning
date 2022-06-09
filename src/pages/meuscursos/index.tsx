@@ -3,7 +3,7 @@ import { SavedCategoriesTemplate } from '@templates/Saved';
 
 
 export default function SavedCategories() {
-    const { currentSavedCategories } = useCategories()
+    const { savedCategories } = useCategories()
   
-  return <SavedCategoriesTemplate categories={currentSavedCategories} />;
+  return <SavedCategoriesTemplate categories={savedCategories} />;
 }
