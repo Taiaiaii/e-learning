@@ -1,6 +1,16 @@
+import { useEffect } from 'react';
+
+import { useCategories } from '@hooks/useCategories';
+import { useTab } from '@hooks/useTab';
 import { SavedCategoriesTemplate } from '@templates/Saved';
-import { MOCKED_SAVED_COURSES } from '../../../.mocks/constants/MOCKED_SAVED_COURSES';
 
 export default function SavedCategories() {
-  return <SavedCategoriesTemplate categories={MOCKED_SAVED_COURSES} />;
+  const { savedCategories } = useCategories();
+  const { setTab } = useTab();
+
+  useEffect(() => {
+    setTab('saved');
+  }, []);
+
+  return <SavedCategoriesTemplate categories={savedCategories} />;
 }

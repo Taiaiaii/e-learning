@@ -5,11 +5,11 @@ import { ICategory, ICourse, IClasses } from '@models'
 
 interface ICategoriesContextProps {
   allCategories: ICategory[];
-  currentSavedCategories: ICategory[];
+  savedCategories: ICategory[];
   currentClasses: ICourse[] | undefined;
   getCategory: (id: string) => ICategory | undefined;
   getCategoryClasses: (id: string) => ICourse[] | undefined;
-  addSavedCategory: (id: string) => ICategory[];
+  addCategory: (id: string) => ICategory[];
   deleteCategory: (id: string) => ICategory[];
 }
 
@@ -37,17 +37,16 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
         (item) => item.id === category.id
       )
       setCurrentClasses(classes?.classes)
-          return currentClasses
+      return currentClasses
     }   
   }
 
-  function addSavedCategory(id: string) {
+  function addCategory(id: string) {
     const category = getCategory(id);
     if (category) {
-      savedCategories.splice(0,0,category);
-      setSavedCategories(savedCategories)
+      setSavedCategories((prevState)=> ([...prevState, category]))  
     }
-    return savedCategories;
+    return savedCategories
   }
 
   function deleteCategory(id: string) {
@@ -61,11 +60,11 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
     <CategoriesContext.Provider
       value={{
         allCategories,
-        currentSavedCategories: savedCategories,
+        savedCategories,
         currentClasses,
         getCategory,
         getCategoryClasses,
-        addSavedCategory,
+        addCategory,
         deleteCategory,
       }}
     >

@@ -14,7 +14,7 @@ interface IClassesTemplateProps {
 
 export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
   const { push } = useRouter();
-  const { addSavedCategory } = useCategories();
+  const { addCategory } = useCategories();
 
   const goToLesson = (event: MouseEvent<HTMLDivElement>) => {
     const id = event.currentTarget.id;
@@ -22,8 +22,9 @@ export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
   };
 
   function handleClickLike(id: string) {
-    addSavedCategory(id);
-    push('/salvos');
+      addCategory(id);
+      push('/saved');
+ 
   }
 
   return (
