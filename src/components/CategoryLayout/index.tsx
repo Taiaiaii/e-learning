@@ -24,11 +24,11 @@ interface ICategoryLayoutProps {
 
 export default function CategoryLayout({ children }: ICategoryLayoutProps) {
   const { push } = useRouter();
-  const { isSelected, setTab } = useTab();
+  const { isTabSelected, selectTab } = useTab();
 
   function handleOptionClick(e: MouseEvent<HTMLDivElement>) {
     const option = e.currentTarget.id;
-    setTab(option as Tabs);
+    selectTab(option as Tabs);
     push(option);
   }
 
@@ -46,17 +46,19 @@ export default function CategoryLayout({ children }: ICategoryLayoutProps) {
       <MainContainer>{children}</MainContainer>
       <Footer>
         <Options
-          selected={isSelected('home')}
+          selected={isTabSelected('home')}
           onClick={handleOptionClick}
           id='home'
+          data-testid='option-home'
         >
           <Home />
           <p>Home</p>
         </Options>
         <Options
-          selected={isSelected('saved')}
+          selected={isTabSelected('saved')}
           onClick={handleOptionClick}
           id='saved'
+          data-testid='option-saved'
         >
           <Saved />
           <p>Salvos</p>

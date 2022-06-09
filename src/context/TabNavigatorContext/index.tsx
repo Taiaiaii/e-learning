@@ -2,8 +2,8 @@ import { createContext, ReactNode, useState } from 'react';
 
 export type Tabs = 'home' | 'saved' | null;
 interface ITabNavigatorContextProps {
-  isSelected:(tab: Tabs) => boolean;
-  setTab: (tab: Tabs) => void;
+  isTabSelected: (tab: Tabs) => boolean;
+  selectTab: (tab: Tabs) => void;
 }
 
 interface ITabNavigatorProviderProps {
@@ -25,7 +25,7 @@ export function TabNavigatorProvider({ children }: ITabNavigatorProviderProps) {
   }
 
   return (
-    <TabNavigatorContext.Provider value={{ isSelected: isTabSelected, setTab: selectTab }}>
+    <TabNavigatorContext.Provider value={{ isTabSelected,  selectTab }}>
       {children}
     </TabNavigatorContext.Provider>
   );
