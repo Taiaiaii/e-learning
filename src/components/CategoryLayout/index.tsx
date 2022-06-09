@@ -17,6 +17,7 @@ import {
   Options,
 } from './styles';
 
+
 interface ICategoryLayoutProps {
   children: ReactNode;
 }
