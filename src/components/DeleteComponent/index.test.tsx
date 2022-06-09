@@ -2,9 +2,11 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import DeleteComponent from '.';
 
+const mockedFunc = jest.fn()
+
 describe('Delete component', ()=> {
     it('Should display alert dialog on click', ()=> {
-        render(<DeleteComponent/>)
+        render(<DeleteComponent handleDelete={mockedFunc}/>)
 
         const button = screen.getByRole('button')
         
@@ -14,7 +16,7 @@ describe('Delete component', ()=> {
         expect(dialog).toBeInTheDocument();
     })
     it('Should close alert dialog on click confirm or cancel button', () => {
-      render(<DeleteComponent />);
+      render(<DeleteComponent handleDelete={mockedFunc} />);
 
       const button = screen.getByRole('button');
       fireEvent.click(button);
@@ -27,7 +29,8 @@ describe('Delete component', ()=> {
       fireEvent.click(button);
 
       const confirmButton = screen.getByRole('button', { name: 'Com certeza' });
-      fireEvent.click(confirmButton);     
+      fireEvent.click(confirmButton); 
+      expect(mockedFunc).toBeCalled()    
       expect(dialog).not.toBeInTheDocument();     
     });
 })
