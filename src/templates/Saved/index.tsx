@@ -12,11 +12,11 @@ interface IMyCoursesTemplateProps {
 
 export function SavedCategoriesTemplate({ categories }: IMyCoursesTemplateProps) {
 
-  const [currentCategories, setCurrentCategories] = useState<ICategory[]>(categories)
+  const [savedCategories, setSavedCategories] = useState<ICategory[]>(categories)
 
   function deleteCategory(id:string){
-    return setCurrentCategories(
-      currentCategories.filter((categories) => categories.id !== id)     
+    return setSavedCategories(
+      savedCategories.filter((categories) => categories.id !== id)     
     );   
   }
 
@@ -26,7 +26,7 @@ export function SavedCategoriesTemplate({ categories }: IMyCoursesTemplateProps)
         <h1>Cursos salvos</h1>
       </Title>
       <Content>
-        {currentCategories.map((category) => {
+        {savedCategories.map((category) => {
           return (
             <CardContainer key={category.id}>
               <CategoryCard
