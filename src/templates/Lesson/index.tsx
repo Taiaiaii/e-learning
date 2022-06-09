@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+
 import ArrowBack from '@public/arrow-back.svg';
 import ArrowFoward from '@public/arrow-foward.svg';
 import { ICourse } from '@models';
@@ -9,14 +11,40 @@ import {
   DetailsContainer,
   VideoContainer,
 } from './styles';
+import { useCategories } from '@hooks/useCategories';
 
 interface ILessonTemplateProps {
   lesson: ICourse;
 }
 
-export default function LessonTemplate({ lesson }: ILessonTemplateProps) {  
+export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
+  const {
+    query: { id },
+    push,
+  } = useRouter();
+
+  const { classes } = useCategories();
+
+  function handleClickArrowBack() {
+    const newId = Number(id) - 1;
+    if (newId > 0) {
+      push(`${newId}`);
+    }
+  }
+
+  function handleClickArrowFoward() {
+    const newId = Number(id) + 1;
+    if(classes){
+      if (newId <= classes?.length) {
+        push(`${newId}`);
+      } else {
+        push('/home');
+      }
+    }
+  }
+
   return (
-    <ClassLayout >
+    <ClassLayout>
       <VideoContainer>
         <iframe
           src={lesson.details.video}
@@ -33,11 +61,19 @@ export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
           <p>{lesson.details.description}</p>
         </div>
         <ButtonContainer>
-          <Button iconSide='left' variant='ghost'>
+          <Button
+            iconSide='left'
+            variant='ghost'
+            onClick={handleClickArrowBack}
+          >
             <ArrowBack />
             Aula anterior
           </Button>
-          <Button iconSide='right' variant='filled'>
+          <Button
+            iconSide='right'
+            variant='filled'
+            onClick={handleClickArrowFoward}
+          >
             <ArrowFoward />
             Próxima aula
           </Button>
