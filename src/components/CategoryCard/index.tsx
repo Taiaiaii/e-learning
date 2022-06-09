@@ -21,7 +21,7 @@ export default function CategoryCard ({img, title, lessons, deleteIcon, handleCl
           <CategoryTitle>{title}</CategoryTitle>
           <Lessons>{lessons} Aulas</Lessons>
         </CategoryContent>
-        {deleteIcon && <ChildrenContainer>{deleteIcon}</ChildrenContainer>}
+        {deleteIcon && <ChildrenContainer data-testid='deleteIcon'>{deleteIcon}</ChildrenContainer>}
       </CategoryCardContainer>
     );
 }
