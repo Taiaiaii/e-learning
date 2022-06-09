@@ -15,7 +15,7 @@ interface IClassCardProps {
 
 export default function ClassCard ({isConcluded,time, title, classNumber, handleClick, id }: IClassCardProps){
     return (
-      <ClassCardContainer onClick={handleClick} id={id}>
+      <ClassCardContainer onClick={handleClick} id={id} data-testid='card'>
         <IconContainer concluded={isConcluded}>
           <Icon />
         </IconContainer>

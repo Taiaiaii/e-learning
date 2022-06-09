@@ -43,6 +43,8 @@ export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
               title={lesson.title}
               handleClick={goToLesson}
               id={lesson.id}
+             
+              
             />
           </CardContainer>
         ))}
