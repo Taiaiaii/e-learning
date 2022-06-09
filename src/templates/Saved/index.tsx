@@ -1,10 +1,9 @@
-import { useState } from 'react';
-
 import { ICategory } from '@models/ICategory';
 import CategoryLayout from '@components/CategoryLayout';
 import { CardContainer, Content, Title } from './styles';
 import CategoryCard from '@components/CategoryCard';
 import DeleteComponent from '@components/DeleteComponent';
+import { useCategories } from '@hooks/useCategories';
 
 interface IMyCoursesTemplateProps {
   categories: ICategory[];
@@ -12,13 +11,7 @@ interface IMyCoursesTemplateProps {
 
 export function SavedCategoriesTemplate({ categories }: IMyCoursesTemplateProps) {
 
-  const [savedCategories, setSavedCategories] = useState<ICategory[]>(categories)
-
-  function deleteCategory(id:string){
-    return setSavedCategories(
-      savedCategories.filter((categories) => categories.id !== id)     
-    );   
-  }
+  const { deleteCategory} = useCategories()
 
   return (
     <CategoryLayout>
@@ -26,7 +19,7 @@ export function SavedCategoriesTemplate({ categories }: IMyCoursesTemplateProps)
         <h1>Cursos salvos</h1>
       </Title>
       <Content>
-        {savedCategories.map((category) => {
+        {categories.map((category) => {
           return (
             <CardContainer key={category.id}>
               <CategoryCard
