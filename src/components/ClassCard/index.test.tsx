@@ -3,9 +3,18 @@ import { render, screen } from "@testing-library/react"
 
 import ClassCard from "."
 
+const mockedPush = jest.fn();
+
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      push: mockedPush,
+    };
+  },
+}));
 describe('Class Card Component', ()=> {
     it('Should render with label', ()=> {
-        render(<ClassCard classNumber="01" isConcluded={true} time={5} title='teste'/>)
+        render(<ClassCard handleClickCard={mockedPush} classNumber="01" isConcluded={true} time={5} title='teste'/>)
 
         const label = screen.getByText('Completo!')
         expect(label).toBeInTheDocument()
@@ -13,7 +22,13 @@ describe('Class Card Component', ()=> {
 
     it('Should render without label', () => {
       render(
-        <ClassCard classNumber='01' isConcluded={false} time={5} title='teste' />
+        <ClassCard
+          handleClickCard={mockedPush}
+          classNumber='01'
+          isConcluded={false}
+          time={5}
+          title='teste'
+        />
       );
 
       const label = screen.queryByText('Completo!');
@@ -27,6 +42,7 @@ describe('Class Card Component', ()=> {
             isConcluded={false}
             time={5}
             title='teste'
+            handleClickCard={mockedPush}
           />
         );
 

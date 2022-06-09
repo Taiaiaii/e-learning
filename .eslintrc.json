@@ -32,7 +32,7 @@
         "newlinesBetween": "always",
          "groups": [
           "module",
-          ["/^@(components|templates|public|styles|models)/", "parent", "sibling", "index"]
+          ["/^@(components|templates|public|models|styles|context|hooks)/", "parent", "sibling", "index"]
         ],
         "alphabetize": { "order": "ignore", "ignoreCase": true }
       }
