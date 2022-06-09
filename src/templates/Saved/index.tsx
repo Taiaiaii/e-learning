@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import { ChangeEvent, MouseEvent } from 'react';
 import { useRouter } from 'next/router';
 
 import { ICategory } from '@models';
@@ -15,7 +15,7 @@ interface IMyCoursesTemplateProps {
 export function SavedCategoriesTemplate({
   categories,
 }: IMyCoursesTemplateProps) {
-  const { deleteCategory } = useCategories();
+  const { deleteCategory, searchSavedCategories } = useCategories();
 
   const { push } = useRouter();
 
@@ -24,8 +24,12 @@ export function SavedCategoriesTemplate({
     push(`categorias/${id}`);
   }
 
+  function setList(e: ChangeEvent<HTMLInputElement>){
+    searchSavedCategories(e.target.value)
+  }
+
   return (
-    <CategoryLayout>
+    <CategoryLayout handleSearchBar={setList}>
       <Title>
         <h1>Cursos salvos</h1>
       </Title>
