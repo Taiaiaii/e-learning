@@ -14,14 +14,14 @@ interface IClassesTemplateProps {
 
 export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
   const { push } = useRouter();
-  const { addSavedCategory } = useCategories();
+  const { addCategory } = useCategories();
 
   function goToLesson(id: number) {
     push(`aulas/${id}`);
   }
 
   function handleClickLike(id: string) {
-      addSavedCategory(id);
+      addCategory(id);
       push('/meuscursos');
  
   }

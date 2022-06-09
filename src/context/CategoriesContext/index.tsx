@@ -6,7 +6,7 @@ import { MOCKED_CATEGORY_LIST } from '../../../.mocks/constants/MOCKED_CATEGORY_
 
 interface ICategoriesContextProps {
   deleteCategory: (id: string) => void;
-  addSavedCategory: (id: string) => void;
+  addCategory: (id: string) => void;
   savedCategories: ICategory[];
 }
 
@@ -32,7 +32,7 @@ export function CategoriesProvider({ children }: ITapProviderProps) {
     return allCategories.find((category) => category.id === id);
   }
 
-  function addSavedCategory(id: string) {
+  function addCategory(id: string) {
     const category = getCategory(id);
     if (category) {
       setSavedCategories((prevState)=> ([...prevState, category]))  
@@ -42,7 +42,7 @@ export function CategoriesProvider({ children }: ITapProviderProps) {
 
   return (
     <CategoriesContext.Provider
-      value={{ deleteCategory, savedCategories, addSavedCategory }}
+      value={{ deleteCategory, savedCategories, addCategory }}
     >
       {children}
     </CategoriesContext.Provider>
