@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { MouseEvent, ReactNode } from 'react';
 import { useRouter } from 'next/router';
 
 import Home from '@public/home.svg';
@@ -17,7 +17,6 @@ import {
   Options,
 } from './styles';
 
-
 interface ICategoryLayoutProps {
   children: ReactNode;
 }
@@ -26,12 +25,10 @@ export default function CategoryLayout({ children }: ICategoryLayoutProps) {
   const { push } = useRouter();
   const { isSelected, setTab } = useTab();
 
-  function handleOptionClick(tab: Tabs, route: string) {
-    return () => {
-      setTab(tab);
-      push(route);
-    }
-    
+  function handleOptionClick(e: MouseEvent<HTMLDivElement>) {
+    const option = e.currentTarget.id;
+    setTab(option as Tabs);
+    push(option);
   }
 
   return (
@@ -49,14 +46,16 @@ export default function CategoryLayout({ children }: ICategoryLayoutProps) {
       <Footer>
         <Options
           selected={isSelected('home')}
-          onClick={handleOptionClick('home', '/home')}
+          onClick={handleOptionClick}
+          id='home'
         >
           <Home />
           <p>Home</p>
         </Options>
         <Options
           selected={isSelected('saved')}
-          onClick={handleOptionClick('saved', '/salvos')}
+          onClick={handleOptionClick}
+          id='saved'
         >
           <Saved />
           <p>Salvos</p>

@@ -23,7 +23,7 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
 
   const [allCategories] = useState<ICategory[]>(MOCKED_CATEGORY_LIST);
   const [allCategoriesClasses] = useState<IClasses[]>(MOCKED_CLASSES);
-  const [currentSavedCategories, setSavedCurrentCategories] = useState<ICategory[]>(MOCKED_SAVED_COURSES);
+  const [savedCategories, setSavedCategories] = useState<ICategory[]>(MOCKED_SAVED_COURSES);
   const [currentClasses, setCurrentClasses] = useState<ICourse[] | undefined>([]);
 
   function getCategory(id: string) {
@@ -33,35 +33,35 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
   function getCategoryClasses(id: string){
     const category = getCategory(id)
     if(category) {
-    const classes = allCategoriesClasses.find(
-      (item) => item.id === category.id
-    )
-    setCurrentClasses(classes?.classes)
-        return currentClasses
+      const classes = allCategoriesClasses.find(
+        (item) => item.id === category.id
+      )
+      setCurrentClasses(classes?.classes)
+          return currentClasses
     }   
   }
 
   function addSavedCategory(id: string) {
     const category = getCategory(id);
     if (category) {
-      currentSavedCategories.splice(0,0,category);
-      setSavedCurrentCategories(currentSavedCategories)
+      savedCategories.splice(0,0,category);
+      setSavedCategories(savedCategories)
     }
-    return currentSavedCategories;
+    return savedCategories;
   }
 
   function deleteCategory(id: string) {
-    setSavedCurrentCategories(
-      currentSavedCategories.filter((categories) => categories.id !== id)
+    setSavedCategories(
+      savedCategories.filter((categories) => categories.id !== id)
     );
-    return currentSavedCategories;
+    return savedCategories;
   }
 
   return (
     <CategoriesContext.Provider
       value={{
         allCategories,
-        currentSavedCategories,
+        currentSavedCategories: savedCategories,
         currentClasses,
         getCategory,
         getCategoryClasses,
