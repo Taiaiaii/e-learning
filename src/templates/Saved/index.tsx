@@ -24,6 +24,11 @@ export function SavedCategoriesTemplate({
     push(`categorias/${id}`);
   }
 
+  function handleDelete(event: MouseEvent<HTMLButtonElement>){
+    const id = event.currentTarget.id;
+    deleteCategory(id)
+  }
+
   return (
     <CategoryLayout>
       <Title>
@@ -39,7 +44,8 @@ export function SavedCategoriesTemplate({
                 title={category.name}
                 deleteIcon={
                   <DeleteComponent
-                    handleDelete={() => deleteCategory(category.id)}
+                    handleDelete={handleDelete}
+                    id={category.id}
                   />
                 }
                 handleClick={handleClickCard}

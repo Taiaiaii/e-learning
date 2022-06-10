@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react';
+import React, { MouseEvent } from 'react';
 import Image from "next/image";
 import { ReactElement } from "react";
 
@@ -8,9 +8,9 @@ interface ICategoryCardProps {
   img: string;
   title: string;
   lessons: string;
-  id: string
+  id: string;
   deleteIcon?: ReactElement;
-  handleClick: MouseEventHandler<HTMLDivElement>;
+  handleClick: (event: MouseEvent<HTMLDivElement>) => void;
 }
 
 export default function CategoryCard ({img, title, lessons, deleteIcon, handleClick, id}: ICategoryCardProps) {

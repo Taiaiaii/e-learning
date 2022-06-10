@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react';
+import React, { MouseEvent} from 'react';
 
 import Icon from '@public/courses.svg'
 import Clock from '@public/clock.svg'
@@ -10,7 +10,7 @@ interface IClassCardProps {
   time: number;
   id: string;
   classNumber: string;
-  handleClick: MouseEventHandler<HTMLDivElement>;
+  handleClick: (event: MouseEvent<HTMLDivElement>) => void;
 }
 
 export default function ClassCard ({isConcluded,time, title, classNumber, handleClick, id }: IClassCardProps){
