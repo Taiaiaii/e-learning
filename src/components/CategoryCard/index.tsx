@@ -17,11 +17,19 @@ export default function CategoryCard ({img, title, lessons, deleteIcon, handleCl
     return (
       <CategoryCardContainer>
         <Image src={img} width={64} height={64} alt='' />
-        <CategoryContent onClick={handleClick} id={id}>
+        <CategoryContent
+          onClick={handleClick}
+          id={id}
+          data-testid='category-card'
+        >
           <CategoryTitle>{title}</CategoryTitle>
           <Lessons>{lessons} Aulas</Lessons>
         </CategoryContent>
-        {deleteIcon && <ChildrenContainer data-testid='deleteIcon'>{deleteIcon}</ChildrenContainer>}
+        {deleteIcon && (
+          <ChildrenContainer data-testid='deleteIcon'>
+            {deleteIcon}
+          </ChildrenContainer>
+        )}
       </CategoryCardContainer>
     );
 }
