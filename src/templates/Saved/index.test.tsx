@@ -6,6 +6,7 @@ import { MOCKED_SAVED_COURSES } from '../../../.mocks/constants';
 const mockedPush = jest.fn();
 const mockedTabSelected = jest.fn();
 const mockedDelete = jest.fn();
+const mockedSearch = jest.fn();
 
 jest.mock('next/router', () => ({
   useRouter() {
@@ -24,6 +25,7 @@ jest.mock('@hooks/useTab', () => ({
 jest.mock('@hooks/useCategories', () => ({
   useCategories: () => ({
     deleteCategory: mockedDelete,
+    searchSavedCategories: mockedSearch,
   }),
 }));
 
@@ -58,5 +60,13 @@ describe('Saved template', () => {
 
     const dialog = screen.queryByTestId('dialog');
     expect(dialog).not.toBeInTheDocument();
+  });
+
+  it('Should call function on type search bar', () => {
+    render(<SavedCategoriesTemplate categories={MOCKED_SAVED_COURSES} />);
+
+    const searchBar = screen.getByTestId('search-bar');
+    fireEvent.change(searchBar, { target: { value: 'matemática' } });
+    expect(mockedSearch).toBeCalled();
   });
 });

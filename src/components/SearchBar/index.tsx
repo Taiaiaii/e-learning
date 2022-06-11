@@ -13,6 +13,7 @@ export default function SearchBar({ handleInput }: ISearchBarProps) {
         type='text'
         placeholder='Busque um curso'
         onChange={handleInput}
+        data-testid='search-bar'
       />
     </Div>
   );

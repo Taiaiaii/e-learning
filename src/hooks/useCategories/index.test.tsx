@@ -6,10 +6,8 @@ import { useCategories } from '.';
 import {
   MOCKED_CATEGORY_LIST,
   MOCKED_CLASSES,
-  MOCKED_SAVED_COURSES,
 } from '../../../.mocks/constants';
-
-import { ICategory, IClasses, ICourse } from '@models';
+import { ICategory, ICourse } from '@models';
 
 const wrapper = ({ children }: { children: ReactNode }) => (
   <CategoriesProvider>{children}</CategoriesProvider>

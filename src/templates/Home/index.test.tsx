@@ -4,7 +4,8 @@ import { MOCKED_CATEGORY_LIST } from "../../../.mocks/constants";
 import { HomeTemplate } from "."
 
 const mockedPush = jest.fn();
-const mockTabSelected = jest.fn();
+const mockedTabSelected = jest.fn();
+const mockedSearch = jest.fn();
 
 jest.mock('next/router', () => ({
   useRouter() {
@@ -16,8 +17,14 @@ jest.mock('next/router', () => ({
 
 jest.mock('@hooks/useTab', () => ({
   useTab: () => ({
-    isTabSelected: mockTabSelected,
+    isTabSelected: mockedTabSelected,
     
+  }),
+}));
+
+jest.mock('@hooks/useCategories', () => ({
+  useCategories: () => ({
+    searchAllCategories: mockedSearch,
   }),
 }));
 
@@ -28,5 +35,13 @@ describe('Home template', ()=> {
         const cards = screen.getAllByTestId('category-card')
         fireEvent.click(cards[0])
         expect(mockedPush).toBeCalled()
+    });
+
+    it('Should call function on type search bar', () => {
+      render(<HomeTemplate categorys={MOCKED_CATEGORY_LIST} />);
+
+      const searchBar = screen.getByTestId('search-bar');
+      fireEvent.change(searchBar, { target: {value: 'matemática'}})
+      expect(mockedSearch).toBeCalled();
     });
 });
