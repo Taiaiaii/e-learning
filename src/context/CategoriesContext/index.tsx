@@ -78,16 +78,17 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
   function addCategory(id: string) {
     const category = getCategory(id);
     if (category) {
-      setSavedCategories((prevState) => [...prevState, category]);
+      setVisibleSavedCategories((prevState) => [...prevState, category]);
     }
     return savedCategories;
   }
 
   function deleteCategory(id: string) {
-    const filteredSavedCategories = savedCategories.filter(
+    const filteredSavedCategories = visibleSavedCategories.filter(
       (categories) => categories.id !== id
     );
-    setSavedCategories(filteredSavedCategories);
+    setVisibleSavedCategories(filteredSavedCategories);
+    console.log('entrou aqui')
     return filteredSavedCategories;
   }
 
