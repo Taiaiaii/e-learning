@@ -1,9 +1,9 @@
-import { render } from "@testing-library/react";
+import { render } from '@testing-library/react';
 
-import Loading from "."
+import Loading from '.';
 
-describe('Loading component', ()=> {
-    it('Should render properly', ()=> {
-        render(<Loading/>)
-    })
-})
+describe('Loading component', () => {
+  it('Should render properly', () => {
+    render(<Loading />);
+  });
+});

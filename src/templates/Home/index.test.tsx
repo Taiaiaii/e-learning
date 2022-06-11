@@ -3,8 +3,8 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { MOCKED_CATEGORY_LIST } from "../../../.mocks/constants";
 import { HomeTemplate } from "."
 
-const mockedPush = jest.fn()
-const mockTabSelected = jest.fn()
+const mockedPush = jest.fn();
+const mockTabSelected = jest.fn();
 
 jest.mock('next/router', () => ({
   useRouter() {
@@ -28,5 +28,5 @@ describe('Home template', ()=> {
         const cards = screen.getAllByTestId('category-card')
         fireEvent.click(cards[0])
         expect(mockedPush).toBeCalled()
-    })
-})
+    });
+});

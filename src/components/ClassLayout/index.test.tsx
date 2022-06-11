@@ -22,10 +22,10 @@ describe('ClassLayout Componente', () => {
     );
 
     const button = screen.getByRole('button', { name: 'arrow-back'})
-
     fireEvent.click(button)
     expect(mockedPush).toBeCalled()
   });
+
   it('Render children', () => {
     render(
       <ClassLayout >
@@ -34,7 +34,6 @@ describe('ClassLayout Componente', () => {
     );
 
     const children= screen.getByText('Teste');
-
     expect(children).toBeInTheDocument();
   });
 });

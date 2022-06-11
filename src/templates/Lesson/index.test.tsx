@@ -41,10 +41,8 @@ describe('Lesson template', () => {
     render(<LessonTemplate lesson={MOCKED_CLASSES[0].classes[0]} />);
 
     const arrowFoward = screen.getByRole('button', { name: 'Próxima aula' });
-
     fireEvent.click(arrowFoward);
     expect(mockedPush).toHaveBeenCalledWith('4');
-
   });
 
   it('Should go no next lesson on click arrow foward with id less then classes lenght', () => {
@@ -54,7 +52,6 @@ describe('Lesson template', () => {
     render(<LessonTemplate lesson={MOCKED_CLASSES[0].classes[0]} />);
 
     const arrowFoward = screen.getByRole('button', { name: 'Próxima aula' });
-
     fireEvent.click(arrowFoward);
     expect(mockedPush).toHaveBeenCalledWith('2');
   });

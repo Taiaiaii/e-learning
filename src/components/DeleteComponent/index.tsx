@@ -1,4 +1,5 @@
 import { MouseEventHandler } from 'react';
+
 import TrashButton from '@public/trash.svg';
 import ColorfulGarbage from '@public/colorfulGarbage.svg';
 import { Button } from '@components/Button';
@@ -15,12 +16,10 @@ export default function DeleteComponent ({ handleDelete, id }: IDeleteComponentP
         trigger={<TrashButton />}
         icon={<ColorfulGarbage />}
         buttonConfirm={
-          <Button
-           
+          <Button          
             onClick={handleDelete}
             variant='filled'
-            id={id}
-            
+            id={id}           
           >
             Com certeza
           </Button>

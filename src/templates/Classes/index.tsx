@@ -24,7 +24,6 @@ export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
   function handleClickLike(id: string) {
       addCategory(id);
       push('/saved');
- 
   }
 
   return (
@@ -42,9 +41,7 @@ export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
               time={lesson.time}
               title={lesson.title}
               handleClick={goToLesson}
-              id={lesson.id}
-             
-              
+              id={lesson.id}                           
             />
           </CardContainer>
         ))}
