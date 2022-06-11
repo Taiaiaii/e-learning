@@ -10,7 +10,7 @@ export default function Classes() {
   const {getCategory, getCategoryClasses} = useCategories()
   
   const category = getCategory(String(id))
-  const classes = getCategoryClasses(String(id));
+  const classes = getCategoryClasses(String(category?.id));
   
   return category && classes && <ClassesTemplate category={category} classes={classes} />
 }
