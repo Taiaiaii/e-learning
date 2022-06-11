@@ -13,17 +13,17 @@ interface IHomeTemplateProps {
 }
 
 export function HomeTemplate({ categorys }: IHomeTemplateProps) {
-  const {push} = useRouter()
-  const {searchAllCategories} = useCategories()
-  
+  const { push } = useRouter();
+  const { searchAllCategories } = useCategories();
+
   function handleClickCard(event: MouseEvent<HTMLDivElement>) {
-    const id = event.currentTarget.id
-      push(`categorias/${id}`);   
+    const id = event.currentTarget.id;
+    push(`categorias/${id}`);
   }
   function setList(e: ChangeEvent<HTMLInputElement>) {
     searchAllCategories(e.target.value);
   }
-  
+
   return (
     <CategoryLayout handleSearchBar={setList}>
       <Title>
