@@ -29,7 +29,7 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
   const [allCategories] = useState<ICategory[]>(MOCKED_CATEGORY_LIST);
   const [visibleCategories, setVisibleCategories] = useState<ICategory[]>([]);
   const [allCategoriesClasses] = useState<IClasses[]>(MOCKED_CLASSES);
-  const [savedCategories, setSavedCategories] =
+  const [savedCategories] =
     useState<ICategory[]>(MOCKED_SAVED_COURSES);
   const [visibleSavedCategories, setVisibleSavedCategories] = useState<
     ICategory[]
@@ -78,16 +78,17 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
   function addCategory(id: string) {
     const category = getCategory(id);
     if (category) {
-      setSavedCategories((prevState) => [...prevState, category]);
+      setVisibleSavedCategories((prevState) => [...prevState, category]);
     }
     return savedCategories;
   }
 
   function deleteCategory(id: string) {
-    const filteredSavedCategories = savedCategories.filter(
+    const filteredSavedCategories = visibleSavedCategories.filter(
       (categories) => categories.id !== id
     );
-    setSavedCategories(filteredSavedCategories);
+    setVisibleSavedCategories(filteredSavedCategories);
+    console.log('entrou aqui')
     return filteredSavedCategories;
   }
 
