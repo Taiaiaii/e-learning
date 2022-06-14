@@ -55,7 +55,7 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
 
   function deleteCategory(id: string) {
     const filteredSavedCategories = savedCategories.filter(
-      (categories) => categories.id !== id
+      (categorie) => categorie.id !== id
     );
     setSavedCategories(filteredSavedCategories);
     return filteredSavedCategories;
