@@ -31,6 +31,7 @@ export const StyledButton = styled('button', {
     alignItems: 'center',
     justifyContent: 'center',
     
+    
     variants: {
         variant: {
             filled: {
@@ -48,6 +49,11 @@ export const StyledButton = styled('button', {
                 width: '100%',         
                 padding: '19px 82px',
             },
+        },
+        disabled:{
+            true: {
+                opacity: '0.5',
+            }
         },
         iconSide: IconsSideStyles
     }

@@ -27,6 +27,7 @@ describe('UseCategories Hook', () => {
 
     expect(category).toBe(MOCKED_CATEGORY_LIST[0]);
   });
+
   it('Should get correct class list', () => {
     const { result } = renderHook(() => useCategories(), {
       wrapper,
@@ -41,6 +42,7 @@ describe('UseCategories Hook', () => {
 
     expect(classes).toBe(MOCKED_CLASSES[0].classes);
   });
+
   it('Should return empty array when category doest exist', () => {
     const { result } = renderHook(() => useCategories(), {
       wrapper,
@@ -71,99 +73,102 @@ describe('UseCategories Hook', () => {
     expect(classes).toStrictEqual([]);
   });
 
-   it('Should return category list with intens that name mach with value inputed', () => {
-     const { result } = renderHook(() => useCategories(), {
-       wrapper,
-     });
+  it('Should return category list with intens that name mach with value inputed', () => {
+    const { result } = renderHook(() => useCategories(), {
+      wrapper,
+    });
 
-     let categories: ICategory [] = []
-     const value = 'temá'
+    let categories: ICategory[] = [];
+    const value = 'temá';
 
-     act(() => {
+    act(() => {
       result.current.searchAllCategories(value);
-     });
-
-     act(() => {
-       categories = result.current.visibleCategories;
-     });
-
-     expect(categories[0].name.toLowerCase().includes(value)).toBeTruthy();
-   });
-    it('Should return saved category list with intens that name mach with value inputed', () => {
-      const { result } = renderHook(() => useCategories(), {
-        wrapper,
-      });
-
-      let categories: ICategory[] = [];
-      const value = 'temá';
-
-      act(() => {
-        result.current.searchSavedCategories(value);
-      });
-
-      act(() => {
-        categories = result.current.visibleSavedCategories;
-      });
-
-      expect(categories[0].name.toLowerCase().includes(value)).toBeTruthy();
     });
-    it('Should update savedCategory with new add iten', () => {
-      const { result } = renderHook(() => useCategories(), {
-        wrapper,
-      });
 
-      let categories: ICategory[] = [];
-      const id = MOCKED_CATEGORY_LIST[5].id;
-
-      act(() => {
-        result.current.addCategory(id);
-      });
-
-      act(() => {
-        categories = result.current.visibleSavedCategories;
-      });
-
-      expect(categories.includes(MOCKED_CATEGORY_LIST[5])).toBeTruthy();
+    act(() => {
+      categories = result.current.visibleCategories;
     });
-    it('Should return empty array when category doest exist', () => {
-      const { result } = renderHook(() => useCategories(), {
-        wrapper,
-      });
 
-      let previousCategories: ICategory[] = [];
-      let categories: ICategory[] = [];
-      const id = '0000';
+    expect(categories[0].name.toLowerCase().includes(value)).toBeTruthy();
+  });
 
-      act(() => {
-        previousCategories = result.current.visibleSavedCategories;
-      });
-
-      act(() => {
-        result.current.addCategory(id);
-      });
-
-      act(() => {
-        categories = result.current.visibleSavedCategories;
-      });
-
-      expect(categories).toStrictEqual(previousCategories);
+  it('Should return saved category list with intens that name mach with value inputed', () => {
+    const { result } = renderHook(() => useCategories(), {
+      wrapper,
     });
-    it('Should update savedCategory without deleted iten', () => {
-      const { result } = renderHook(() => useCategories(), {
-        wrapper,
-      });
 
-      let categories: ICategory[] = [];
-      const id = MOCKED_CATEGORY_LIST[5].id;
+    let categories: ICategory[] = [];
+    const value = 'temá';
 
-      act(() => {
-        result.current.deleteCategory(id);
-      });
-
-      act(() => {
-        categories = result.current.visibleSavedCategories;
-      });
-
-      expect(categories.includes(MOCKED_CATEGORY_LIST[5])).toBeFalsy();
+    act(() => {
+      result.current.searchSavedCategories(value);
     });
+
+    act(() => {
+      categories = result.current.visibleSavedCategories;
+    });
+
+    expect(categories[0].name.toLowerCase().includes(value)).toBeTruthy();
+  });
+
+  it('Should update savedCategory with new add iten', () => {
+    const { result } = renderHook(() => useCategories(), {
+      wrapper,
+    });
+
+    let categories: ICategory[] = [];
+    const id = MOCKED_CATEGORY_LIST[5].id;
+
+    act(() => {
+      result.current.addCategory(id);
+    });
+
+    act(() => {
+      categories = result.current.visibleSavedCategories;
+    });
+
+    expect(categories.includes(MOCKED_CATEGORY_LIST[5])).toBeTruthy();
+  });
+  it('Should return empty array when category doest exist', () => {
+    const { result } = renderHook(() => useCategories(), {
+      wrapper,
+    });
+
+    let previousCategories: ICategory[] = [];
+    let categories: ICategory[] = [];
+    const id = '0000';
+
+    act(() => {
+      previousCategories = result.current.visibleSavedCategories;
+    });
+
+    act(() => {
+      result.current.addCategory(id);
+    });
+
+    act(() => {
+      categories = result.current.visibleSavedCategories;
+    });
+
+    expect(categories).toStrictEqual(previousCategories);
+  });
+  
+  it('Should update savedCategory without deleted iten', () => {
+    const { result } = renderHook(() => useCategories(), {
+      wrapper,
+    });
+
+    let categories: ICategory[] = [];
+    const id = MOCKED_CATEGORY_LIST[5].id;
+
+    act(() => {
+      result.current.deleteCategory(id);
+    });
+
+    act(() => {
+      categories = result.current.visibleSavedCategories;
+    });
+
+    expect(categories.includes(MOCKED_CATEGORY_LIST[5])).toBeFalsy();
+  });
 });

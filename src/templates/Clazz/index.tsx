@@ -5,13 +5,14 @@ import ArrowFoward from '@public/arrow-foward.svg';
 import { IClazz } from '@models';
 import ClassLayout from '@components/ClassLayout';
 import { Button } from '@components/Button';
+import { useCategories } from '@hooks/useCategories';
 import {
   ButtonContainer,
   DescriptionContainer,
   DetailsContainer,
   VideoContainer,
 } from './styles';
-import { useCategories } from '@hooks/useCategories';
+
 
 interface ILessonTemplateProps {
   clazz: IClazz;
@@ -25,8 +26,13 @@ export default function ClazzTemplate({ clazz }: ILessonTemplateProps) {
 
   const { classes } = useCategories();
 
+  const parsedId = Number(id)
+  const isArrowBackDisabled = parsedId == 1;
+  const isArrowFowardDisabled = parsedId == classes?.length;
+
   function handleClickArrowBack() {
     const newId = Number(id) - 1;
+    
     if (newId > 0) {
       push(`${newId}`);
     }
@@ -34,12 +40,10 @@ export default function ClazzTemplate({ clazz }: ILessonTemplateProps) {
 
   function handleClickArrowFoward() {
     const newId = Number(id) + 1;
-    if(classes){
-      if (newId <= classes?.length) {
-        push(`${newId}`);
-      } else {
-        push('/home');
-      }
+    if (!classes) return;
+
+    if (newId <= classes.length) {
+      push(`${newId}`);
     }
   }
 
@@ -65,6 +69,7 @@ export default function ClazzTemplate({ clazz }: ILessonTemplateProps) {
             iconSide='left'
             variant='ghost'
             onClick={handleClickArrowBack}
+            disabled={isArrowBackDisabled}
           >
             <ArrowBack />
             Aula anterior
@@ -73,6 +78,7 @@ export default function ClazzTemplate({ clazz }: ILessonTemplateProps) {
             iconSide='right'
             variant='filled'
             onClick={handleClickArrowFoward}
+            disabled={isArrowFowardDisabled}
           >
             <ArrowFoward />
             Próxima aula

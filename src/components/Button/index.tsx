@@ -9,6 +9,7 @@ type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'css'> & {
   iconSide?: 'right' | 'left';
   children:  ReactNode | string;
   fullWidth?: boolean;
+  disabled?: boolean;
   variant: Variants;
 };
 
