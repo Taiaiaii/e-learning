@@ -1,4 +1,5 @@
-import { useContext } from "react";
-import { TabNavigatorContext } from "@context/TabNavigatorContext";
+import { useContext } from 'react';
 
-export const useTab = () => useContext(TabNavigatorContext)
+import { TabNavigatorContext } from '@context/TabNavigatorContext';
+
+export const useTab = () => useContext(TabNavigatorContext);
