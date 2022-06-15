@@ -3,16 +3,16 @@ import { createContext, ReactNode, useEffect, useState } from 'react';
 import {
   MOCKED_CATEGORY_LIST,
   MOCKED_CLASSES,
-  MOCKED_SAVED_COURSES,
+  MOCKED_SAVED_CATEGORIES,
 } from '../../../.mocks/constants';
-import { ICategory, ICourse, IClasses } from '@models';
+import { ICategory, IClazz, IClasses } from '@models';
 
 interface ICategoriesContextProps {
-  classes: ICourse[];
+  classes: IClazz[];
   visibleCategories: ICategory[];
   visibleSavedCategories: ICategory[];
   getCategory: (id: string) => ICategory | undefined;
-  getCategoryClasses: (id: string) => ICourse[];
+  getCategoryClasses: (id: string) => IClazz[];
   addCategory: (id: string) => void;
   deleteCategory: (id: string) => void;
   searchAllCategories: (value: string) => void;
@@ -29,11 +29,11 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
   const [allCategories, setAllCategories] = useState<ICategory[]>([]);
   const [visibleCategories, setVisibleCategories] = useState<ICategory[]>([]);
   const [allCategoriesClasses] = useState<IClasses[]>(MOCKED_CLASSES);
-  const [savedCategories] = useState<ICategory[]>(MOCKED_SAVED_COURSES);
+  const [savedCategories] = useState<ICategory[]>(MOCKED_SAVED_CATEGORIES);
   const [visibleSavedCategories, setVisibleSavedCategories] = useState<
     ICategory[]
   >([]);
-  const [classes, setClasses] = useState<ICourse[]>([]);
+  const [classes, setClasses] = useState<IClazz[]>([]);
 
   useEffect(() => {
     const classesIdList = MOCKED_CLASSES.map((classes) => classes.id);

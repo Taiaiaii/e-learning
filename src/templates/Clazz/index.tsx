@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 
 import ArrowBack from '@public/arrow-back.svg';
 import ArrowFoward from '@public/arrow-foward.svg';
-import { ICourse } from '@models';
+import { IClazz } from '@models';
 import ClassLayout from '@components/ClassLayout';
 import { Button } from '@components/Button';
 import {
@@ -14,10 +14,10 @@ import {
 import { useCategories } from '@hooks/useCategories';
 
 interface ILessonTemplateProps {
-  lesson: ICourse;
+  clazz: IClazz;
 }
 
-export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
+export default function ClazzTemplate({ clazz }: ILessonTemplateProps) {
   const {
     query: { id },
     push,
@@ -47,18 +47,18 @@ export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
     <ClassLayout>
       <VideoContainer>
         <iframe
-          src={lesson.details.video}
+          src={clazz.details.video}
           title='YouTube video player'
         ></iframe>
       </VideoContainer>
       <DescriptionContainer>
         <div>
-          <h1>{lesson.title}</h1>
+          <h1>{clazz.title}</h1>
           <DetailsContainer>
-            <span>Aula {lesson.classNumber}</span>
-            <span>{lesson.time} min</span>
+            <span>Aula {clazz.classNumber}</span>
+            <span>{clazz.time} min</span>
           </DetailsContainer>
-          <p>{lesson.details.description}</p>
+          <p>{clazz.details.description}</p>
         </div>
         <ButtonContainer>
           <Button

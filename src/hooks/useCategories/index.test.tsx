@@ -7,7 +7,7 @@ import {
   MOCKED_CATEGORY_LIST,
   MOCKED_CLASSES,
 } from '../../../.mocks/constants';
-import { ICategory, ICourse } from '@models';
+import { ICategory, IClazz } from '@models';
 
 const wrapper = ({ children }: { children: ReactNode }) => (
   <CategoriesProvider>{children}</CategoriesProvider>
@@ -32,7 +32,7 @@ describe('UseCategories Hook', () => {
       wrapper,
     });
 
-    let classes: ICourse[] = [];
+    let classes: IClazz[] = [];
     const id = MOCKED_CATEGORY_LIST[0].id;
 
     act(() => {
@@ -46,7 +46,7 @@ describe('UseCategories Hook', () => {
       wrapper,
     });
 
-    let classes: ICourse[] = [];
+    let classes: IClazz[] = [];
     const id = '0000';
 
     act(() => {
@@ -61,7 +61,7 @@ describe('UseCategories Hook', () => {
       wrapper,
     });
 
-    let classes: ICourse[] = [];
+    let classes: IClazz[] = [];
     const id = MOCKED_CATEGORY_LIST[6].id;
 
     act(() => {

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { MOCKED_CLASSES } from '../../../.mocks/constants';
-import LessonTemplate from '.';
+import ClazzTemplate from '.';
 
 const mockedPush = jest.fn();
 const mockedId = jest.fn();
@@ -26,7 +26,7 @@ describe('Lesson template', () => {
     mockedId.mockImplementation(() => ({
       id: '2',
     }));
-    render(<LessonTemplate lesson={MOCKED_CLASSES[0].classes[0]} />);
+    render(<ClazzTemplate clazz={MOCKED_CLASSES[0].classes[0]} />);
 
     const arrowBack = screen.getByRole('button', { name: 'Aula anterior' });
     fireEvent.click(arrowBack);
@@ -38,7 +38,7 @@ describe('Lesson template', () => {
       id: '3',
     }));
 
-    render(<LessonTemplate lesson={MOCKED_CLASSES[0].classes[0]} />);
+    render(<ClazzTemplate clazz={MOCKED_CLASSES[0].classes[0]} />);
 
     const arrowFoward = screen.getByRole('button', { name: 'Próxima aula' });
     fireEvent.click(arrowFoward);
@@ -49,7 +49,7 @@ describe('Lesson template', () => {
     mockedId.mockImplementation(() => ({
       id: '1',
     }));
-    render(<LessonTemplate lesson={MOCKED_CLASSES[0].classes[0]} />);
+    render(<ClazzTemplate clazz={MOCKED_CLASSES[0].classes[0]} />);
 
     const arrowFoward = screen.getByRole('button', { name: 'Próxima aula' });
     fireEvent.click(arrowFoward);
@@ -60,7 +60,7 @@ describe('Lesson template', () => {
     mockedId.mockImplementation(() => ({
       id: '4',
     }));
-    render(<LessonTemplate lesson={MOCKED_CLASSES[0].classes[0]} />);
+    render(<ClazzTemplate clazz={MOCKED_CLASSES[0].classes[0]} />);
 
     const arrowFoward = screen.getByRole('button', { name: 'Próxima aula' });
     fireEvent.click(arrowFoward);

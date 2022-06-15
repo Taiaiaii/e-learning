@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { SavedCategoriesTemplate } from '.';
-import { MOCKED_SAVED_COURSES } from '../../../.mocks/constants';
+import { MOCKED_SAVED_CATEGORIES } from '../../../.mocks/constants';
 
 const mockedPush = jest.fn();
 const mockedTabSelected = jest.fn();
@@ -31,7 +31,7 @@ jest.mock('@hooks/useCategories', () => ({
 
 describe('Saved template', () => {
   it('Should call func on click card', () => {
-    render(<SavedCategoriesTemplate categories={MOCKED_SAVED_COURSES} />);
+    render(<SavedCategoriesTemplate categories={MOCKED_SAVED_CATEGORIES} />);
 
     const cards = screen.getAllByTestId('category-card');
     fireEvent.click(cards[0]);
@@ -39,7 +39,7 @@ describe('Saved template', () => {
   });
 
   it('Should call delete function on click confirm deletion button', () => {
-    render(<SavedCategoriesTemplate categories={MOCKED_SAVED_COURSES} />);
+    render(<SavedCategoriesTemplate categories={MOCKED_SAVED_CATEGORIES} />);
 
     const deleteButtons = screen.getAllByTestId('trigger-button');
     fireEvent.click(deleteButtons[0]);
@@ -50,7 +50,7 @@ describe('Saved template', () => {
   });
 
   it('Should close modal on click cancel deletion button', () => {
-    render(<SavedCategoriesTemplate categories={MOCKED_SAVED_COURSES} />);
+    render(<SavedCategoriesTemplate categories={MOCKED_SAVED_CATEGORIES} />);
 
     const deleteButtons = screen.getAllByTestId('trigger-button');
     fireEvent.click(deleteButtons[0]);
@@ -63,7 +63,7 @@ describe('Saved template', () => {
   });
 
   it('Should call function on type search bar', () => {
-    render(<SavedCategoriesTemplate categories={MOCKED_SAVED_COURSES} />);
+    render(<SavedCategoriesTemplate categories={MOCKED_SAVED_CATEGORIES} />);
 
     const searchBar = screen.getByTestId('search-bar');
     fireEvent.change(searchBar, { target: { value: 'matemática' } });

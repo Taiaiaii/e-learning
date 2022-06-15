@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import LessonTemplate from '@templates/Lesson';
+import ClazzTemplate from '@templates/Clazz';
 import { useCategories } from '@hooks/useCategories';
 
 export default function Lesson() {
@@ -8,7 +8,7 @@ export default function Lesson() {
 
   const { classes } = useCategories()
 
-  const lesson = classes?.find((item) => item.id === id);
+  const clazz = classes?.find((clazz) => clazz.id === id);
 
-  return lesson && <LessonTemplate lesson={lesson} />;
+  return clazz && <ClazzTemplate clazz={clazz} />;
 }
