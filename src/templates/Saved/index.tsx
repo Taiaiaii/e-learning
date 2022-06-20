@@ -1,9 +1,11 @@
-import { ICategory } from '@models/ICategory';
+import { useRouter } from 'next/router';
+
+import { ICategory } from '@models';
 import CategoryLayout from '@components/CategoryLayout';
-import { CardContainer, Content, Title } from './styles';
 import CategoryCard from '@components/CategoryCard';
 import DeleteComponent from '@components/DeleteComponent';
 import { useCategories } from '@hooks/useCategories';
+import { CardContainer, Content, Title } from './styles';
 
 interface IMyCoursesTemplateProps {
   categories: ICategory[];
@@ -12,6 +14,10 @@ interface IMyCoursesTemplateProps {
 export function SavedCategoriesTemplate({ categories }: IMyCoursesTemplateProps) {
 
   const { deleteCategory} = useCategories()
+   const { push } = useRouter();
+   function handleClickCard(id: string) {
+     push(`categorias/${id}`);
+   }
 
   return (
     <CategoryLayout>
@@ -27,6 +33,7 @@ export function SavedCategoriesTemplate({ categories }: IMyCoursesTemplateProps)
                 lessons={category.lessons}
                 title={category.name}
                 deleteIcon={<DeleteComponent handleDelete={()=> deleteCategory(category.id)}/>}
+                handleClick={()=> handleClickCard(category.id)}
               />
             </CardContainer>
           );

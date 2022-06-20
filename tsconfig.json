@@ -19,9 +19,10 @@
       "@public/*": ["public/*"],
       "@components/*": ["src/components/*"],
       "@templates/*": ["src/templates/*"],
-      "@models/*": ["src/models/*"],
+      "@models": ["src/models/index"],
       "@styles/*": ["src/styles/*"],
-      "@context/*": ["src/context/*","src/context" ],
+      "@context": ["src/context/index" ],
+      "@context/*": ["src/context/*"],
       "@hooks/*": ["src/hooks/*"]
     }
   },

@@ -9,17 +9,18 @@ interface ICategoryCardProps  {
   title: string;
   lessons: string;
   deleteIcon?: ReactElement
+  handleClick: () => void
 }
 
-export default function CategoryCard ({img, title, lessons, deleteIcon}: ICategoryCardProps) {
+export default function CategoryCard ({img, title, lessons, deleteIcon, handleClick}: ICategoryCardProps) {
     return (
       <CategoryCardContainer>
         <Image src={img} width={64} height={64} alt='' />
-        <CategoryContent>
+        <CategoryContent onClick={handleClick}>
           <CategoryTitle>{title}</CategoryTitle>
           <Lessons>{lessons} Aulas</Lessons>
         </CategoryContent>
-        {deleteIcon && <ChildrenContainer>{deleteIcon}</ChildrenContainer> }       
+        {deleteIcon && <ChildrenContainer>{deleteIcon}</ChildrenContainer>}
       </CategoryCardContainer>
     );
 }

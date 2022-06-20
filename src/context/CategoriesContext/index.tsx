@@ -1,35 +1,44 @@
 import { createContext, ReactNode, useState } from 'react';
 
-import { ICategory } from '@models/ICategory';
-import { MOCKED_SAVED_COURSES } from '../../../.mocks/constants/MOCKED_SAVED_COURSES';
-import { MOCKED_CATEGORY_LIST } from '../../../.mocks/constants/MOCKED_CATEGORY_LIST';
+import { MOCKED_CATEGORY_LIST, MOCKED_CLASSES, MOCKED_SAVED_COURSES } from '../../../.mocks/constants'
+import { ICategory, ICourse, IClasses } from '@models'
 
 interface ICategoriesContextProps {
-  deleteCategory: (id: string) => void;
-  addCategory: (id: string) => void;
+  allCategories: ICategory[];
+  currentClasses: ICourse[] | undefined;
   savedCategories: ICategory[];
+  getCategory: (id: string) => ICategory | undefined;
+  getCategoryClasses: (id: string) => ICourse[] | undefined;
+  addCategory: (id: string) => void;
+  deleteCategory: (id: string) => ICategory[];
 }
 
-interface ITapProviderProps {
+interface ICategoriesProviderProps {
   children: ReactNode;
 }
 
 export const CategoriesContext = createContext({} as ICategoriesContextProps);
 
-export function CategoriesProvider({ children }: ITapProviderProps) {
-  const [savedCategories, setSavedCategories] =
-    useState<ICategory[]>(MOCKED_SAVED_COURSES);
+export function CategoriesProvider({ children }: ICategoriesProviderProps) {
 
   const [allCategories] = useState<ICategory[]>(MOCKED_CATEGORY_LIST);
-
-  function deleteCategory(id: string) {
-    return setSavedCategories(
-      savedCategories.filter((categories) => categories.id !== id)
-    );
-  }
+  const [allCategoriesClasses] = useState<IClasses[]>(MOCKED_CLASSES);
+  const [savedCategories, setSavedCategories] = useState<ICategory[]>(MOCKED_SAVED_COURSES);
+  const [currentClasses, setCurrentClasses] = useState<ICourse[] | undefined>([]);
 
   function getCategory(id: string) {
     return allCategories.find((category) => category.id === id);
+  }
+
+  function getCategoryClasses(id: string){
+    const category = getCategory(id)
+    if(category) {
+      const classes = allCategoriesClasses.find(
+        (item) => item.id === category.id
+      )
+      setCurrentClasses(classes?.classes)
+          return currentClasses
+    }   
   }
 
   function addCategory(id: string) {
@@ -40,9 +49,24 @@ export function CategoriesProvider({ children }: ITapProviderProps) {
     return savedCategories
   }
 
+  function deleteCategory(id: string) {
+    setSavedCategories(
+      savedCategories.filter((categories) => categories.id !== id)
+    );
+    return savedCategories;
+  }
+
   return (
     <CategoriesContext.Provider
-      value={{ deleteCategory, savedCategories, addCategory }}
+      value={{
+        allCategories,
+        savedCategories,
+        currentClasses,
+        getCategory,
+        getCategoryClasses,
+        addCategory,
+        deleteCategory,
+      }}
     >
       {children}
     </CategoriesContext.Provider>

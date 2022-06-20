@@ -3,12 +3,12 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import ClassLayout from '.';
 
-const mockedPush = jest.fn();
+const mockedBack = jest.fn();
 
 jest.mock('next/router', () => ({
   useRouter() {
     return {
-      push: mockedPush,
+      back: mockedBack,
     };
   },
 }));
@@ -16,7 +16,7 @@ jest.mock('next/router', () => ({
 describe('ClassLayout Componente', () => {
   it('Should call route on click arrow button', () => {
     render(
-      <ClassLayout route='/'>
+      <ClassLayout>
         <p>Teste</p>
       </ClassLayout>
     );
@@ -24,11 +24,11 @@ describe('ClassLayout Componente', () => {
     const button = screen.getByRole('button', { name: 'arrow-back'})
 
     fireEvent.click(button)
-    expect(mockedPush).toBeCalled()
+    expect(mockedBack).toBeCalled()
   });
   it('Render children', () => {
     render(
-      <ClassLayout route='/'>
+      <ClassLayout >
         <p>Teste</p>
       </ClassLayout>
     );

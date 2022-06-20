@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import {MOCKED_CATEGORY_LIST} from '../../../.mocks/constants/MOCKED_CATEGORY_LIST'
 import { HomeTemplate } from '@templates/Home';
+import { useCategories } from '@hooks/useCategories';
+import { useTab } from '@hooks/useTab';
 
 export default function Home() {
-  return (
-   <HomeTemplate categorys={MOCKED_CATEGORY_LIST}/>
-  );
+  
+  const { allCategories } = useCategories();
+  const { selectTab } = useTab();
+
+  useEffect(() => {
+    selectTab('home');
+  }, []);
+
+  return <HomeTemplate categorys={allCategories} />;
 }

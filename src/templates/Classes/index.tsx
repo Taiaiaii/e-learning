@@ -1,18 +1,18 @@
 import { useRouter } from 'next/router';
 
-import { ICategory } from '@models/ICategory';
-import { IClass } from '@models/IClass';
 import ClassCard from '@components/ClassCard';
 import ClassLayout from '@components/ClassLayout';
-import { CardContainer, Content, Title } from './styles';
 import { useCategories } from '@hooks/useCategories';
+import { ICategory, ICourse } from '@models';
+import { CardContainer, Content, Title } from './styles';
 
 interface IClassesTemplateProps {
   category: ICategory;
-  classes: IClass[];
+  classes: ICourse[];
 }
 
 export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
+
   const { push } = useRouter();
   const { addCategory } = useCategories();
 
@@ -22,12 +22,12 @@ export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
 
   function handleClickLike(id: string) {
       addCategory(id);
-      push('/meuscursos');
+      push('/saved');
  
   }
 
   return (
-    <ClassLayout route='/home' handleClick={()=>handleClickLike(category.id)}>
+    <ClassLayout handleClick={()=>handleClickLike(category.id)}>
       <Title>
         <h1>{category.name}</h1>
         <p>{category.lessons} aulas</p>

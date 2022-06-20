@@ -1,4 +1,4 @@
-import { ICategory } from '@models/ICategory'
+import { ICategory } from '@models'
 
 export const MOCKED_CATEGORY_LIST: ICategory[] = [
     {

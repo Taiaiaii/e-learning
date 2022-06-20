@@ -6,6 +6,8 @@ import Saved from '@public/saved.svg';
 import Logo from '@public/logo.svg';
 import LogoutButtonIcon from '@public/logout.svg';
 import SearchBar from '@components/SearchBar';
+import { useTab } from '@hooks/useTab';
+import { Tabs } from '@context/TabNavigatorContext';
 import {
   CategoryContainer,
   Content,
@@ -14,8 +16,6 @@ import {
   MainContainer,
   Options,
 } from './styles';
-import { useTab } from '@hooks/useTab';
-import { Tabs } from '@context/TabContext';
 
 interface ICategoryLayoutProps {
   children: ReactNode;
@@ -23,11 +23,11 @@ interface ICategoryLayoutProps {
 
 export default function CategoryLayout({ children }: ICategoryLayoutProps) {
   const { push } = useRouter();
-  const { isSelected, setTab } = useTab();
+  const { isSelected, selectTab } = useTab();
 
   function handleOptionClick(e: MouseEvent<HTMLDivElement>) {
     const option = e.currentTarget.id;
-    setTab(option as Tabs);
+    selectTab(option as Tabs);
     push(option);
   }
 

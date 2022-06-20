@@ -1,4 +1,4 @@
-export interface IClass {
+export interface ICourse {
     id: number,
     isConcluded: boolean,
     title: string,

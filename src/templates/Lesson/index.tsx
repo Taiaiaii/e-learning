@@ -1,6 +1,6 @@
 import ArrowBack from '@public/arrow-back.svg';
 import ArrowFoward from '@public/arrow-foward.svg';
-import { IClass } from '@models/IClass';
+import { ICourse } from '@models';
 import ClassLayout from '@components/ClassLayout';
 import { Button } from '@components/Button';
 import {
@@ -11,13 +11,12 @@ import {
 } from './styles';
 
 interface ILessonTemplateProps {
-  lesson: IClass;
+  lesson: ICourse;
 }
 
-export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
-  
+export default function LessonTemplate({ lesson }: ILessonTemplateProps) {  
   return (
-    <ClassLayout route='/aulas'>
+    <ClassLayout >
       <VideoContainer>
         <iframe
           src={lesson.details.video}
