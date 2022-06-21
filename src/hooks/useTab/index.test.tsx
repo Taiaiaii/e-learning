@@ -14,8 +14,8 @@ describe('TabNavigator Context', ()=> {
           wrapper,
         });
 
-        let savedIsSelected
-        const tab = 'saved'
+        let savedIsSelected;
+        const tab = 'saved';
 
         act(()=> {
         savedIsSelected = result.current.isTabSelected(tab);
@@ -27,9 +27,6 @@ describe('TabNavigator Context', ()=> {
      it('Should return true when selectTab is seted', () => {
        const { result } = renderHook(() => useTab(), {
          wrapper,
-         initialProps: {
-           children: <div></div>,
-         },
        });
 
        let savedIsSelected;

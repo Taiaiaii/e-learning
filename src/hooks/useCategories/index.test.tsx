@@ -3,11 +3,11 @@ import { renderHook, act } from '@testing-library/react-hooks';
 
 import { CategoriesProvider } from '@context/CategoriesContext';
 import { useCategories } from '.';
+import { ICategory, IClazz } from '@models';
 import {
   MOCKED_CATEGORY_LIST,
   MOCKED_CLASSES,
 } from '../../../.mocks/constants';
-import { ICategory, IClazz } from '@models';
 
 const wrapper = ({ children }: { children: ReactNode }) => (
   <CategoriesProvider>{children}</CategoriesProvider>
