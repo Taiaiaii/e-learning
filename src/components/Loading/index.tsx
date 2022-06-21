@@ -6,7 +6,7 @@ export default function Loading() {
     <LoadingContainer>
       <Logo />
       <DotContainer>
-        <Dot></Dot>
+        <Dot data-testid='dots'></Dot>
       </DotContainer>
     </LoadingContainer>
   );
