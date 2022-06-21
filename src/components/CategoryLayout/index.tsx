@@ -17,18 +17,17 @@ import {
   Options,
 } from './styles';
 
-
 interface ICategoryLayoutProps {
   children: ReactNode;
 }
 
 export default function CategoryLayout({ children }: ICategoryLayoutProps) {
   const { push } = useRouter();
-  const { isSelected, setTab } = useTab();
+  const { isSelected, selectTab } = useTab();
 
   function handleOptionClick(e: MouseEvent<HTMLDivElement>) {
     const option = e.currentTarget.id;
-    setTab(option as Tabs);
+    selectTab(option as Tabs);
     push(option);
   }
 

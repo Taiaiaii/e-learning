@@ -50,7 +50,7 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
     if (category) {
       setSavedCategories((prevState) => [...prevState, category]);
     }
-    return savedCategories;
+    return savedCategories
   }
 
   function deleteCategory(id: string) {
