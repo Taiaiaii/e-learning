@@ -24,13 +24,13 @@ jest.mock('next/router', () => ({
 
 describe('Category layout', () => {
   it('Should render child properly', () => {
-    render(<CategoryLayout>TEST</CategoryLayout>);
+    render(<CategoryLayout >TEST</CategoryLayout>);
 
     const children = screen.getByText('TEST');
     expect(children).toBeInTheDocument();
   });
 
-  it('Should call function on clik home option', () => {
+  it('Should call provided function to onClick home option clicked', () => { 
     render(<CategoryLayout>TEST</CategoryLayout>);
 
     const option = screen.getByTestId('option-home');
@@ -40,7 +40,7 @@ describe('Category layout', () => {
     expect(mockedPush).toBeCalled();
   });
 
-  it('Should call function on clik saved option', () => {
+  it('Should call provided function to onClick saved option clicked', () => {
     render(<CategoryLayout>TEST</CategoryLayout>);
 
     const option = screen.getByTestId('option-saved');

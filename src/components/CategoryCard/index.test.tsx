@@ -7,7 +7,7 @@ import '@testing-library/jest-dom/extend-expect';
 
 const mockedFunc = jest.fn();
 describe('Card Category Component', () => {
-  it('Should call function on click', () => {
+  it('Should call a provided function to onClick when clicked', () => {
     render(
       <CategoryCard
         img='/build.svg'

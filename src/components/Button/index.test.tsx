@@ -5,7 +5,7 @@ import {Button}  from '.';
 
 const fn = jest.fn();
 describe('Button', () => {
-  it('Should execute the function on click', () => {    
+  it('Should call a provided function to onClick when clicked', () => {
     render(
       <Button variant='filled' onClick={fn}>
         Example button

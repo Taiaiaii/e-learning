@@ -5,7 +5,7 @@ import DeleteComponent from '.';
 const mockedFunc = jest.fn();
 
 describe('Delete component', () => {
-  it('Should display alert dialog on click', () => {
+  it('Should display alert dialog on click trash button', () => {
     render(<DeleteComponent id='1' handleDelete={mockedFunc} />);
 
     const button = screen.getByRole('button');

@@ -14,7 +14,7 @@ jest.mock('next/router', () => ({
 }));
 
 describe('ClassLayout Componente', () => {
-  it('Should call route on click arrow button', () => {
+  it('Should call useRoute on click arrow button', () => {
     render(
       <ClassLayout>
         <p>Teste</p>
@@ -26,7 +26,7 @@ describe('ClassLayout Componente', () => {
     expect(mockedBack).toBeCalled()
   });
 
-  it('Render children', () => {
+  it('Should Render children', () => {
     render(
       <ClassLayout >
         <p>Teste</p>
