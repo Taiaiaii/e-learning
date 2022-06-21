@@ -13,8 +13,8 @@ interface ICategoriesContextProps {
   visibleSavedCategories: ICategory[];
   getCategory: (id: string) => ICategory | undefined;
   getCategoryClasses: (id: string) => ICourse[] | undefined;
-  addCategory: (id: string) => ICategory[];
-  deleteCategory: (id: string) => ICategory[];
+  addCategory: (id: string) => void;
+  deleteCategory: (id: string) => void;
   searchAllCategories: (value: string) => void;
   searchSavedCategories: (value: string) => void;
 }
@@ -29,7 +29,7 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
   const [allCategories] = useState<ICategory[]>(MOCKED_CATEGORY_LIST);
   const [visibleCategories, setVisibleCategories] = useState<ICategory[]>([]);
   const [allCategoriesClasses] = useState<IClasses[]>(MOCKED_CLASSES);
-  const [savedCategories, setSavedCategories] =
+  const [savedCategories] =
     useState<ICategory[]>(MOCKED_SAVED_COURSES);
   const [visibleSavedCategories, setVisibleSavedCategories] = useState<
     ICategory[]
@@ -77,10 +77,8 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
 
   function addCategory(id: string) {
     const category = getCategory(id);
-    if (category) {
-      setVisibleSavedCategories((prevState) => [...prevState, category]);
-    }
-    return savedCategories;
+    if (!category) return;
+    setVisibleSavedCategories((prevState) => [...prevState, category]);
   }
 
   function deleteCategory(id: string) {
@@ -88,8 +86,6 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
       (categories) => categories.id !== id
     );
     setVisibleSavedCategories(filteredSavedCategories);
-    console.log('entrou aqui')
-    return filteredSavedCategories;
   }
 
   return (
@@ -103,7 +99,7 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
         visibleCategories,
         visibleSavedCategories,
         searchAllCategories,
-        searchSavedCategories
+        searchSavedCategories,
       }}
     >
       {children}
