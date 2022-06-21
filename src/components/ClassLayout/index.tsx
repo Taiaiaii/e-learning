@@ -14,13 +14,13 @@ interface IClassLayoutProps {
 
 export default function ClassLayout({ children, handleClick }: IClassLayoutProps) {
   const {  back } = useRouter();
-  function handleClickArrow() {
-    back()
-  }
+  // function handleClickArrow() {
+  //   back()
+  // }
   return (
     <ClassContainer>
       <Header>
-        <button aria-label='arrow-back' onClick={() => handleClickArrow()}>
+        <button aria-label='arrow-back' onClick={() => back()}>
           <ArrowBack />
         </button>
         <Logo />
