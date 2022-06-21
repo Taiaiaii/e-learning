@@ -46,24 +46,4 @@ describe('<ClassCard />', () => {
     expect(label).not.toBeInTheDocument();
   });
 
-  it('Should render all elements properly', () => {
-    render(
-      <ClassCard
-        classNumber='01'
-        isConcluded={false}
-        time={5}
-        title='teste'
-        handleClick={mockedPush}
-        id='1'
-      />
-    );
-
-    const title = screen.getByText('teste');
-    const details = screen.getByText('Aula 01');
-    const time = screen.getByText('5 min');
-
-    expect(title).toBeInTheDocument();
-    expect(details).toBeInTheDocument();
-    expect(time).toBeInTheDocument();
-  });
 });
