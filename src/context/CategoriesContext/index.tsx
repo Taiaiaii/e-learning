@@ -3,16 +3,16 @@ import { createContext, ReactNode, useEffect, useState } from 'react';
 import {
   MOCKED_CATEGORY_LIST,
   MOCKED_CLASSES,
-  MOCKED_SAVED_COURSES,
+  MOCKED_SAVED_CATEGORIES,
 } from '../../../.mocks/constants';
-import { ICategory, ICourse, IClasses } from '@models';
+import { ICategory, IClazz, IClasses } from '@models';
 
 interface ICategoriesContextProps {
-  classes: ICourse[] | undefined;
+  classes: IClazz[];
   visibleCategories: ICategory[];
   visibleSavedCategories: ICategory[];
   getCategory: (id: string) => ICategory | undefined;
-  getCategoryClasses: (id: string) => ICourse[] | undefined;
+  getCategoryClasses: (id: string) => IClazz[];
   addCategory: (id: string) => void;
   deleteCategory: (id: string) => void;
   searchAllCategories: (value: string) => void;
@@ -26,23 +26,41 @@ interface ICategoriesProviderProps {
 export const CategoriesContext = createContext({} as ICategoriesContextProps);
 
 export function CategoriesProvider({ children }: ICategoriesProviderProps) {
-  const [allCategories] = useState<ICategory[]>(MOCKED_CATEGORY_LIST);
+  const [allCategories, setAllCategories] = useState<ICategory[]>([]);
   const [visibleCategories, setVisibleCategories] = useState<ICategory[]>([]);
   const [allCategoriesClasses] = useState<IClasses[]>(MOCKED_CLASSES);
-  const [savedCategories] =
-    useState<ICategory[]>(MOCKED_SAVED_COURSES);
+  const [savedCategories] = useState<ICategory[]>(MOCKED_SAVED_CATEGORIES);
   const [visibleSavedCategories, setVisibleSavedCategories] = useState<
     ICategory[]
   >([]);
-  const [classes, setClasses] = useState<ICourse[] | undefined>([]);
+  const [classes, setClasses] = useState<IClazz[]>([]);
 
   useEffect(() => {
-    setVisibleCategories(allCategories);
+    const classesIdList = MOCKED_CLASSES.map((classes) => classes.id);
+    const validCategories = MOCKED_CATEGORY_LIST.filter((categories) =>
+      classesIdList.includes(categories.id)
+    );
+
+    setAllCategories(validCategories);
+    setVisibleCategories(validCategories);
   }, []);
 
   useEffect(() => {
     setVisibleSavedCategories(savedCategories);
   }, []);
+
+  function getCategory(id: string) {
+    return allCategories.find((category) => category.id === id);
+  }
+
+  function getCategoryClasses(category_id: string) {
+    const categorySelected = allCategoriesClasses.find(
+      (item) => item.id === category_id
+    );
+    const selectedClasses = categorySelected?.classes || [];
+    setClasses(selectedClasses);
+    return selectedClasses;
+  }
 
   function searchAllCategories(value: string) {
     setVisibleCategories(
@@ -60,31 +78,19 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
     );
   }
 
-  function getCategory(id: string) {
-    return allCategories.find((category) => category.id === id);
-  }
-
-  function getCategoryClasses(id: string) {
-    const category = getCategory(id);
-    if (category) {
-      const categorySelected = allCategoriesClasses.find(
-        (item) => item.id === category.id
-      );
-      setClasses(categorySelected?.classes);
-      return classes;
-    }
-  }
-
   function addCategory(id: string) {
     const category = getCategory(id);
     if (!category) return;
+   
     setVisibleSavedCategories((prevState) => [...prevState, category]);
+
   }
 
-  function deleteCategory(id: string) {
+  function deleteCategory(category_id: string) {
     const filteredSavedCategories = visibleSavedCategories.filter(
-      (categories) => categories.id !== id
+      ({ id }) => category_id !== id
     );
+
     setVisibleSavedCategories(filteredSavedCategories);
 
   }

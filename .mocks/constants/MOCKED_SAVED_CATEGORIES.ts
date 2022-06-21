@@ -1,6 +1,6 @@
 import { ICategory } from '@models'
 
-export const MOCKED_SAVED_COURSES: ICategory[] = [
+export const MOCKED_SAVED_CATEGORIES: ICategory[] = [
     {
         id: '0102',
         name: 'Matemática',

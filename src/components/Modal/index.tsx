@@ -41,7 +41,7 @@ export function Modal({
   return (
     <AlertDialogPrimitive.Root>
       <AlertDialogPrimitive.Trigger asChild>
-        <TriggerButton>{trigger}</TriggerButton>
+        <TriggerButton data-testid='trigger-button'>{trigger}</TriggerButton>
       </AlertDialogPrimitive.Trigger>
       <AlertDialogContent data-testid='dialog'>
         <Content>

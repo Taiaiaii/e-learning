@@ -1,6 +1,6 @@
-import { ICourse } from "./ICourse";
+import { IClazz } from "./IClazz";
 
 export interface IClasses {
     id: string,
-    classes: ICourse[]
+    classes: IClazz[]
 }

@@ -37,5 +37,11 @@ export const MOCKED_CATEGORY_LIST: ICategory[] = [
         img: '/build.svg',
         lessons: '3',
     },
+    {
+        id: '0207',
+        name: 'Programaçao Java',
+        img: '/build.svg',
+        lessons: '3',
+    },
 
 ]

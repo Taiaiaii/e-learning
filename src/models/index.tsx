@@ -1,3 +1,3 @@
 export * from './ICategory'
 export * from './IClasses'
-export * from './ICourse'
+export * from './IClazz'

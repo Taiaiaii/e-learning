@@ -4,19 +4,19 @@ import { useRouter } from 'next/router';
 import ClassCard from '@components/ClassCard';
 import ClassLayout from '@components/ClassLayout';
 import { useCategories } from '@hooks/useCategories';
-import { ICategory, ICourse } from '@models';
+import { ICategory, IClazz } from '@models';
 import { CardContainer, Content, Title } from './styles';
 
 interface IClassesTemplateProps {
   category: ICategory;
-  classes: ICourse[];
+  classes: IClazz[];
 }
 
 export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
   const { push } = useRouter();
   const { addCategory } = useCategories();
 
-  const goToLesson = (event: MouseEvent<HTMLDivElement>) => {
+  const goToClazz = (event: MouseEvent<HTMLDivElement>) => {
     const id = event.currentTarget.id;
     push(`aulas/${id}`);
   };
@@ -24,7 +24,6 @@ export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
   function handleClickLike(id: string) {
       addCategory(id);
       push('/saved');
- 
   }
 
   return (
@@ -34,15 +33,15 @@ export function ClassesTemplate({ category, classes }: IClassesTemplateProps) {
         <p>{category.lessons} aulas</p>
       </Title>
       <Content>
-        {classes.map((lesson) => (
-          <CardContainer key={lesson.id}>
+        {classes.map((clazz) => (
+          <CardContainer key={clazz.id}>
             <ClassCard
-              classNumber={lesson.classNumber}
-              isConcluded={lesson.isConcluded}
-              time={lesson.time}
-              title={lesson.title}
-              handleClick={goToLesson}
-              id={lesson.id}
+              classNumber={clazz.classNumber}
+              isConcluded={clazz.isConcluded}
+              time={clazz.time}
+              title={clazz.title}
+              handleClick={goToClazz}
+              id={clazz.id}                           
             />
           </CardContainer>
         ))}

@@ -49,6 +49,7 @@ export default function CategoryLayout({ children, handleSearchBar }: ICategoryL
           selected={isTabSelected('home')}
           onClick={handleOptionClick}
           id='home'
+          data-testid='option-home'
         >
           <Home />
           <p>Home</p>
@@ -57,6 +58,7 @@ export default function CategoryLayout({ children, handleSearchBar }: ICategoryL
           selected={isTabSelected('saved')}
           onClick={handleOptionClick}
           id='saved'
+          data-testid='option-saved'
         >
           <Saved />
           <p>Salvos</p>

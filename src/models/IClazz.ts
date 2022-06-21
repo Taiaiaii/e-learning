@@ -1,4 +1,4 @@
-export interface ICourse {
+export interface IClazz {
     id: string,
     isConcluded: boolean,
     title: string,
