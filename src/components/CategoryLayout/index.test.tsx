@@ -36,7 +36,7 @@ describe('<CategoryLayout />', () => {
     const option = screen.getByTestId('option-home');
 
     fireEvent.click(option);
-    expect(mockedOptionClick).toBeCalled();
+    expect(mockedOptionClick).toHaveBeenCalledWith('home');
     expect(mockedPush).toBeCalled();
   });
 
@@ -45,7 +45,7 @@ describe('<CategoryLayout />', () => {
 
     const option = screen.getByTestId('option-saved');
     fireEvent.click(option);
-    expect(mockedOptionClick).toBeCalled();
+    expect(mockedOptionClick).toHaveBeenCalledWith('saved');
     expect(mockedPush).toBeCalled();
   });
 });
