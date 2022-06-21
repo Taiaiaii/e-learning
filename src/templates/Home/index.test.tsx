@@ -16,8 +16,7 @@ jest.mock('next/router', () => ({
 
 jest.mock('@hooks/useTab', () => ({
   useTab: () => ({
-    isTabSelected: mockTabSelected,
-    
+    isTabSelected: mockTabSelected,   
   }),
 }));
 
