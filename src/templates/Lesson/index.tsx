@@ -20,17 +20,19 @@ interface ILessonTemplateProps {
 
 export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
   const {
-    query: { id },
+    query: { id: queryId },
     push,
   } = useRouter();
 
   const { classes } = useCategories();
 
-  const isArrowBackDisabled = Number(id) == 1
-  const isArrowFowardDisabled = Number(id) == classes?.length;
+  const id = Number(queryId)
+
+  const isArrowBackDisabled = id === 1
+  const isArrowFowardDisabled = id === classes?.length;
 
   function handleClickArrowBack() {
-    const newId = Number(id) - 1;
+    const newId = id - 1;
     
     if (newId > 0) {
       push(`${newId}`);
@@ -38,7 +40,7 @@ export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
   }
 
   function handleClickArrowFoward() {
-    const newId = Number(id) + 1;
+    const newId = id + 1;
     if (!classes) return;
 
     if (newId <= classes.length) {
