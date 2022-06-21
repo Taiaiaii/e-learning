@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react';
 import { useRouter } from 'next/router';
 
 import { ICategory } from '@models';
@@ -11,13 +12,17 @@ interface IMyCoursesTemplateProps {
   categories: ICategory[];
 }
 
-export function SavedCategoriesTemplate({ categories }: IMyCoursesTemplateProps) {
+export function SavedCategoriesTemplate({
+  categories,
+}: IMyCoursesTemplateProps) {
+  const { deleteCategory } = useCategories();
 
-  const { deleteCategory} = useCategories()
-   const { push } = useRouter();
-   function handleClickCard(id: string) {
-     push(`categorias/${id}`);
-   }
+  const { push } = useRouter();
+
+  function handleClickCard(event: MouseEvent<HTMLDivElement>) {
+    const id = event.currentTarget.id;
+    push(`categorias/${id}`);
+  }
 
   return (
     <CategoryLayout>
@@ -32,8 +37,13 @@ export function SavedCategoriesTemplate({ categories }: IMyCoursesTemplateProps)
                 img={category.img}
                 lessons={category.lessons}
                 title={category.name}
-                deleteIcon={<DeleteComponent handleDelete={()=> deleteCategory(category.id)}/>}
-                handleClick={()=> handleClickCard(category.id)}
+                deleteIcon={
+                  <DeleteComponent
+                    handleDelete={() => deleteCategory(category.id)}
+                  />
+                }
+                handleClick={handleClickCard}
+                id={category.id}
               />
             </CardContainer>
           );

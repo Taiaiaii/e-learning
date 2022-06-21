@@ -1,5 +1,5 @@
 export interface ICourse {
-    id: number,
+    id: string,
     isConcluded: boolean,
     title: string,
     time: number,

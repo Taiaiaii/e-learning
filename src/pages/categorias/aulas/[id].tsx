@@ -6,9 +6,9 @@ import { useCategories } from '@hooks/useCategories';
 export default function Lesson() {
   const { query: { id } } = useRouter();
 
-  const { currentClasses } = useCategories()
+  const { classes } = useCategories()
 
-  const lesson = currentClasses?.find((item) => item.id === Number(id));
+  const lesson = classes?.find((item) => item.id === id);
 
   return lesson && <LessonTemplate lesson={lesson} />;
 }

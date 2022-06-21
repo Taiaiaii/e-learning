@@ -1,20 +1,21 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react';
 
 import Icon from '@public/courses.svg'
 import Clock from '@public/clock.svg'
 import { BottomContainer, ClassCardContainer, Content, Details, IconContainer, Label, Time, Title } from './styles'
 
 interface IClassCardProps {
-    isConcluded: boolean;
-    title: string;
-    time: number;
-    classNumber: string;
-    handleClickCard: () => void
+  isConcluded: boolean;
+  title: string;
+  time: number;
+  id: string;
+  classNumber: string;
+  handleClick: MouseEventHandler<HTMLDivElement>;
 }
 
-export default function ClassCard ({isConcluded,time, title, classNumber, handleClickCard}: IClassCardProps){
+export default function ClassCard ({isConcluded,time, title, classNumber, handleClick, id }: IClassCardProps){
     return (
-      <ClassCardContainer onClick={handleClickCard}>
+      <ClassCardContainer onClick={handleClick} id={id}>
         <IconContainer concluded={isConcluded}>
           <Icon />
         </IconContainer>
