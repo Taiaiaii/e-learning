@@ -13,7 +13,7 @@ jest.mock('next/router', () => ({
   },
 }));
 
-describe('ClassLayout Componente', () => {
+describe('<ClassLayout />', () => {
   it('Should call useRoute on click arrow button', () => {
     render(
       <ClassLayout>

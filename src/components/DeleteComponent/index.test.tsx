@@ -4,7 +4,7 @@ import DeleteComponent from '.';
 
 const mockedFunc = jest.fn();
 
-describe('Delete component', () => {
+describe('<DeleteComponent />', () => {
   it('Should display alert dialog on click trash button', () => {
     render(<DeleteComponent id='1' handleDelete={mockedFunc} />);
 

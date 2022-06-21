@@ -13,7 +13,7 @@ jest.mock('next/router', () => ({
   },
 }));
 
-describe('Class Card Component', () => {
+describe('<ClassCard />', () => {
   it('Should render with label', () => {
     render(
       <ClassCard

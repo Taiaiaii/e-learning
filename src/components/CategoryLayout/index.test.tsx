@@ -22,7 +22,7 @@ jest.mock('next/router', () => ({
   },
 }));
 
-describe('Category layout', () => {
+describe('<CategoryLayout />', () => {
   it('Should render child properly', () => {
     render(<CategoryLayout >TEST</CategoryLayout>);
 
