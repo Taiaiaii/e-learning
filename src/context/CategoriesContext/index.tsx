@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 
 import {
   MOCKED_CATEGORY_LIST,
@@ -8,13 +8,15 @@ import {
 import { ICategory, ICourse, IClasses } from '@models';
 
 interface ICategoriesContextProps {
-  allCategories: ICategory[];
-  savedCategories: ICategory[];
   classes: ICourse[] | undefined;
+  visibleCategories: ICategory[];
+  visibleSavedCategories: ICategory[];
   getCategory: (id: string) => ICategory | undefined;
   getCategoryClasses: (id: string) => ICourse[] | undefined;
-  addCategory: (id: string) => ICategory[];
-  deleteCategory: (id: string) => ICategory[];
+  addCategory: (id: string) => void;
+  deleteCategory: (id: string) => void;
+  searchAllCategories: (value: string) => void;
+  searchSavedCategories: (value: string) => void;
 }
 
 interface ICategoriesProviderProps {
@@ -25,10 +27,38 @@ export const CategoriesContext = createContext({} as ICategoriesContextProps);
 
 export function CategoriesProvider({ children }: ICategoriesProviderProps) {
   const [allCategories] = useState<ICategory[]>(MOCKED_CATEGORY_LIST);
+  const [visibleCategories, setVisibleCategories] = useState<ICategory[]>([]);
   const [allCategoriesClasses] = useState<IClasses[]>(MOCKED_CLASSES);
-  const [savedCategories, setSavedCategories] =
+  const [savedCategories] =
     useState<ICategory[]>(MOCKED_SAVED_COURSES);
+  const [visibleSavedCategories, setVisibleSavedCategories] = useState<
+    ICategory[]
+  >([]);
   const [classes, setClasses] = useState<ICourse[] | undefined>([]);
+
+  useEffect(() => {
+    setVisibleCategories(allCategories);
+  }, []);
+
+  useEffect(() => {
+    setVisibleSavedCategories(savedCategories);
+  }, []);
+
+  function searchAllCategories(value: string) {
+    setVisibleCategories(
+      allCategories.filter((category) =>
+        category.name.toLowerCase().includes(value.toLowerCase())
+      )
+    );
+  }
+
+  function searchSavedCategories(value: string) {
+    setVisibleSavedCategories(
+      savedCategories.filter((category) =>
+        category.name.toLowerCase().includes(value.toLowerCase())
+      )
+    );
+  }
 
   function getCategory(id: string) {
     return allCategories.find((category) => category.id === id);
@@ -47,30 +77,30 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
 
   function addCategory(id: string) {
     const category = getCategory(id);
-    if (category) {
-      setSavedCategories((prevState) => [...prevState, category]);
-    }
-    return savedCategories;
+    if (!category) return;
+    setVisibleSavedCategories((prevState) => [...prevState, category]);
   }
 
   function deleteCategory(id: string) {
-    const filteredSavedCategories = savedCategories.filter(
-      (categorie) => categorie.id !== id
+    const filteredSavedCategories = visibleSavedCategories.filter(
+      (categories) => categories.id !== id
     );
-    setSavedCategories(filteredSavedCategories);
-    return filteredSavedCategories;
+    setVisibleSavedCategories(filteredSavedCategories);
+
   }
 
   return (
     <CategoriesContext.Provider
       value={{
-        allCategories,
-        savedCategories,
         classes,
         getCategory,
         getCategoryClasses,
         addCategory,
         deleteCategory,
+        visibleCategories,
+        visibleSavedCategories,
+        searchAllCategories,
+        searchSavedCategories,
       }}
     >
       {children}

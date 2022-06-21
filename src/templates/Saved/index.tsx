@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import { ChangeEvent, MouseEvent } from 'react';
 import { useRouter } from 'next/router';
 
 import { ICategory } from '@models';
@@ -15,7 +15,7 @@ interface IMyCoursesTemplateProps {
 export function SavedCategoriesTemplate({
   categories,
 }: IMyCoursesTemplateProps) {
-  const { deleteCategory } = useCategories();
+  const { deleteCategory, searchSavedCategories } = useCategories();
 
   const { push } = useRouter();
 
@@ -24,8 +24,17 @@ export function SavedCategoriesTemplate({
     push(`categorias/${id}`);
   }
 
+  function handleDelete(event: MouseEvent<HTMLButtonElement>) {
+    const id = event.currentTarget.id;
+    deleteCategory(id);
+  }
+
+  function setList(e: ChangeEvent<HTMLInputElement>){
+    searchSavedCategories(e.target.value)
+  }
+
   return (
-    <CategoryLayout>
+    <CategoryLayout handleSearchBar={setList}>
       <Title>
         <h1>Cursos salvos</h1>
       </Title>
@@ -39,7 +48,8 @@ export function SavedCategoriesTemplate({
                 title={category.name}
                 deleteIcon={
                   <DeleteComponent
-                    handleDelete={() => deleteCategory(category.id)}
+                    handleDelete={handleDelete}
+                    id={category.id}
                   />
                 }
                 handleClick={handleClickCard}

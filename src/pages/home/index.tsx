@@ -6,12 +6,12 @@ import { useTab } from '@hooks/useTab';
 
 export default function Home() {
   
-  const { allCategories } = useCategories();
-  const { setTab } = useTab();
+  const { visibleCategories } = useCategories();
+  const { selectTab } = useTab();
 
   useEffect(() => {
-    setTab('home');
+    selectTab('home');
   }, []);
 
-  return <HomeTemplate categorys={allCategories} />;
+  return <HomeTemplate categorys={visibleCategories} />;
 }
