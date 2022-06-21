@@ -1,4 +1,4 @@
-import { MouseEvent, ReactNode } from 'react';
+import { ChangeEventHandler, MouseEvent, ReactNode } from 'react';
 import { useRouter } from 'next/router';
 
 import Home from '@public/home.svg';
@@ -19,11 +19,12 @@ import {
 
 interface ICategoryLayoutProps {
   children: ReactNode;
+  handleSearchBar: ChangeEventHandler<HTMLInputElement>;
 }
 
-export default function CategoryLayout({ children }: ICategoryLayoutProps) {
+export default function CategoryLayout({ children, handleSearchBar }: ICategoryLayoutProps) {
   const { push } = useRouter();
-  const { isSelected, selectTab } = useTab();
+  const { isTabSelected, selectTab } = useTab();
 
   function handleOptionClick(e: MouseEvent<HTMLDivElement>) {
     const option = e.currentTarget.id;
@@ -40,12 +41,12 @@ export default function CategoryLayout({ children }: ICategoryLayoutProps) {
             <LogoutButtonIcon />
           </button>
         </Content>
-        <SearchBar />
+        <SearchBar handleInput={handleSearchBar} />
       </Header>
       <MainContainer>{children}</MainContainer>
       <Footer>
         <Options
-          selected={isSelected('home')}
+          selected={isTabSelected('home')}
           onClick={handleOptionClick}
           id='home'
         >
@@ -53,7 +54,7 @@ export default function CategoryLayout({ children }: ICategoryLayoutProps) {
           <p>Home</p>
         </Options>
         <Options
-          selected={isSelected('saved')}
+          selected={isTabSelected('saved')}
           onClick={handleOptionClick}
           id='saved'
         >

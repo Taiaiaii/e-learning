@@ -6,12 +6,12 @@ import { SavedCategoriesTemplate } from '@templates/Saved';
 
 
 export default function SavedCategories() {
-    const { savedCategories } = useCategories()
+    const { visibleSavedCategories } = useCategories()
     const { selectTab } = useTab();
 
     useEffect(() => {
       selectTab('saved');
     }, []);
   
-  return <SavedCategoriesTemplate categories={savedCategories} />;
+  return <SavedCategoriesTemplate categories={visibleSavedCategories} />;
 }
