@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-
 import { ChangeEvent, MouseEvent } from 'react';
 
 import { ICategory } from '@models';

@@ -13,8 +13,8 @@ jest.mock('next/router', () => ({
   },
 }));
 
-describe('ClassLayout Componente', () => {
-  it('Should call route on click arrow button', () => {
+describe('<ClassLayout />', () => {
+  it('Should call useRoute on click arrow button', () => {
     render(
       <ClassLayout>
         <p>Teste</p>
@@ -22,11 +22,11 @@ describe('ClassLayout Componente', () => {
     );
 
     const button = screen.getByRole('button', { name: 'arrow-back'})
-
     fireEvent.click(button)
     expect(mockedBack).toBeCalled()
   });
-  it('Render children', () => {
+
+  it('Should Render children', () => {
     render(
       <ClassLayout >
         <p>Teste</p>
@@ -34,7 +34,6 @@ describe('ClassLayout Componente', () => {
     );
 
     const children= screen.getByText('Teste');
-
     expect(children).toBeInTheDocument();
   });
 });

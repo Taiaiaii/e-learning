@@ -86,7 +86,6 @@ export function CategoriesProvider({ children }: ICategoriesProviderProps) {
       (categories) => categories.id !== id
     );
     setVisibleSavedCategories(filteredSavedCategories);
-
   }
 
   return (

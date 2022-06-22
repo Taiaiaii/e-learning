@@ -25,7 +25,7 @@ export function TabNavigatorProvider({ children }: ITabNavigatorProviderProps) {
   }
 
   return (
-    <TabNavigatorContext.Provider value={{  isTabSelected, selectTab }}>
+    <TabNavigatorContext.Provider value={{ isTabSelected,  selectTab }}>
       {children}
     </TabNavigatorContext.Provider>
   );
