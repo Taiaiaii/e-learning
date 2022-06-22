@@ -5,13 +5,14 @@ import ArrowFoward from '@public/arrow-foward.svg';
 import { ICourse } from '@models';
 import ClassLayout from '@components/ClassLayout';
 import { Button } from '@components/Button';
+import { useCategories } from '@hooks/useCategories';
 import {
   ButtonContainer,
   DescriptionContainer,
   DetailsContainer,
   VideoContainer,
 } from './styles';
-import { useCategories } from '@hooks/useCategories';
+
 
 interface ILessonTemplateProps {
   lesson: ICourse;
@@ -19,27 +20,31 @@ interface ILessonTemplateProps {
 
 export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
   const {
-    query: { id },
+    query: { id: queryId },
     push,
   } = useRouter();
 
   const { classes } = useCategories();
 
+  const id = Number(queryId)
+
+  const isArrowBackDisabled = id === 1
+  const isArrowFowardDisabled = id === classes?.length;
+
   function handleClickArrowBack() {
-    const newId = Number(id) - 1;
+    const newId = id - 1;
+    
     if (newId > 0) {
       push(`${newId}`);
     }
   }
 
   function handleClickArrowFoward() {
-    const newId = Number(id) + 1;
-    if(classes){
-      if (newId <= classes?.length) {
-        push(`${newId}`);
-      } else {
-        push('/home');
-      }
+    const newId = id + 1;
+    if (!classes) return;
+
+    if (newId <= classes.length) {
+      push(`${newId}`);
     }
   }
 
@@ -65,6 +70,7 @@ export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
             iconSide='left'
             variant='ghost'
             onClick={handleClickArrowBack}
+            disabled={isArrowBackDisabled}
           >
             <ArrowBack />
             Aula anterior
@@ -73,6 +79,7 @@ export default function LessonTemplate({ lesson }: ILessonTemplateProps) {
             iconSide='right'
             variant='filled'
             onClick={handleClickArrowFoward}
+            disabled={isArrowFowardDisabled}
           >
             <ArrowFoward />
             Próxima aula

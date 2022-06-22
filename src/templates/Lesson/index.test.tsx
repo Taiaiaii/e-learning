@@ -64,6 +64,6 @@ describe('Lesson template', () => {
 
     const arrowFoward = screen.getByRole('button', { name: 'Próxima aula' });
     fireEvent.click(arrowFoward);
-    expect(mockedPush).toHaveBeenCalledWith('/home');
+    expect(mockedPush).not.toHaveBeenCalled();
   });
 });
